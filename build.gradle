@@ -1,0 +1,97 @@
+import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask
+import jp.classmethod.aws.gradle.lambda.AWSLambdaUpdateFunctionCodeTask
+import jp.classmethod.aws.gradle.identitymanagement.AmazonIdentityManagementCreateRoleTask
+
+// grab the AWS plugin
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'jp.classmethod.aws:gradle-aws-plugin:0.37'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.41'
+    }
+}
+
+apply plugin: 'jp.classmethod.aws.lambda'
+apply plugin: 'jp.classmethod.aws.iam'
+
+// Apply the kotlin plugin to add support for Kotlin
+apply plugin: 'kotlin'
+apply plugin: 'idea'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compileOnly 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    implementation 'com.amazonaws:aws-java-sdk-ses:1.11.602'
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.9'
+    implementation 'org.jsoup:jsoup:1.10.3'
+    implementation 'joda-time:joda-time:2.8.1'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    testImplementation 'io.mockk:mockk:1.9.3'
+}
+
+jar {
+    from {
+        configurations.compileClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+aws {
+    profileName = 'default'
+    region = 'ap-southeast-2'
+}
+
+task createRole(type: AmazonIdentityManagementCreateRoleTask) {
+    doFirst {
+        roleName = 'translink-lambda'
+        assumeRolePolicyDocument = '{"Version": "2012-10-17", "Statement": ['  
+                '{"Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action":"sts:AssumeRole"}'  
+                ']}'
+        policyArns = [
+                'arn:aws:iam::aws:policy/AmazonSESFullAccess',
+                'arn:aws:iam::aws:policy/service/AWSLambdaBasicExecutionRole'
+        ]
+    }
+}
+
+task createLambda(type: AWSLambdaMigrateFunctionTask, dependsOn: jar) {
+    doFirst {
+        role = "arn:aws:iam::${aws.accountId}:role/translink-lambda"
+        zipFile = jar.archiveFile.get().getAsFile()
+        memorySize = 256
+        timeout = 60
+        runtime = 'java8'
+        functionName = 'translink-lambda'
+        environment = [
+            CARD_NUM: '0160016740712345',
+            PASSWORD: 'secret1',
+            EMAIL:    'your@email.com',
+            MODE:     'Train',
+            ROUTE:    'Beenleigh Line',
+            SOURCE_DESTINATION: 'Yeronga:Central',
+            USUAL_JOURNEY: 'I was travelling too and from work as normal and was charged a penalty when tapping on.',
+            ABANDONED_JOURNEY: 'I was travelling too and from work as normal, but due to delays gave up waiting for a train and sought alternative way home.'
+        ]
+        handler = 'com.mannanlive.TranslinkHandler::handleRequest'
+        description = 'Checks Translink for all charges'
+    }
+}
+
+task updateLambda(type: AWSLambdaUpdateFunctionCodeTask, dependsOn: jar) {
+    doFirst {
+        functionName = 'translink-lambda'
+        zipFile = jar.archiveFile.get().getAsFile()
+    }
+}
