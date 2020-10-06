@@ -37,6 +37,13 @@ module.exports = {
                 options: {
                     name: 'assets/img/[name].[ext]?[hash]'
                 }
+            },{
+                type: 'javascript/auto',
+                test: /\.(json)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: 'api/[name].[ext]'
+                }
             },
         ],
     },

@@ -1,6 +1,8 @@
 import React, {Component, ReactNode} from "react";
 import {EBayChart} from "./EBayChart";
+import {EBayChart2} from "./EBayChart2";
 import {CardSelector} from "./CardSelector";
+import {Banner} from "./header/Banner";
 import {CardImage} from "./CardImage";
 import data from "../data/data";
 
@@ -24,21 +26,18 @@ export class Page extends Component<{}, {}> {
 
     render(): ReactNode {
         return (
-            <html lang="en">
-            <head>
-                <meta charSet="utf-8"/>
-                <title>Hello world</title>
-            </head>
-            <body>
-            <CardSelector callback={this.handleChange}/>
-            <br/>
-            <br/>
-            {this.state.selectedOption && <EBayChart data={data[this.state.selectedOption.value]}/>}
-            <br/>
-            <br/>
-            <CardImage card={this.state.selectedOption}/>
-            </body>
-            </html>
+            <React.Fragment>
+                <Banner/>
+                <div style={{maxWidth: '800px', margin: '0 auto'}}>
+                    <CardSelector callback={this.handleChange}/>
+                    <br/>
+                    <br/>
+                    <CardImage card={this.state.selectedOption}/>
+                    <br/>
+                    <br/>
+                    {this.state.selectedOption && <EBayChart2 data={data[this.state.selectedOption.value]}/>}
+                </div>
+            </React.Fragment>
         );
     }
 }
