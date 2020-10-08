@@ -11,23 +11,38 @@ class EBayParser {
 
     fun process(input: String): List<Listing> {
         return Jsoup.parse(input).select("li.sresult").mapNotNull { row ->
-            val listingId = row.attr("listingid").toLong()
-            val date = formatter.parseDateTime(row.select("li.timeleft").text())
-            val price = getPrice(row.select("li.lvprice").text())
-            if (price == null) {
+            val cancelledOffer = row.select("li.lvprice span.sboffer")
+            if (cancelledOffer.size > 0) {
                 null
             } else {
-                Listing(listingId, price, date)
+                val listingId = row.attr("listingid").toLong()
+                val date = formatter.parseDateTime(row.select("li.timeleft").text())
+                val price = getPrice(
+                    row.select("li.lvprice").text(),
+                    row.select("li.lvshipping").text()
+                )
+                if (price == null) {
+                    null
+                } else {
+                    Listing(listingId, price, date)
+                }
             }
         }
     }
 
-    private fun getPrice(text: String) : BigDecimal? = try {
-        text.split("$")[1].toBigDecimal()
+    private fun getPrice(text: String, shipping: String): BigDecimal? = try {
+        if (shipping == "Free postage") {
+            text.extractAmount
+        } else {
+            text.extractAmount + shipping.extractAmount
+        }
     } catch (ex: Exception) {
-        println(text)
+        println("Unable to process: amount=$text, shipping=$shipping")
         null
     }
+
+    private val String.extractAmount: BigDecimal
+        get() = this.replace(" postage", "").split("$")[1].toBigDecimal()
 
     data class Listing(
         val id: Long,

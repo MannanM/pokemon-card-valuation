@@ -1,9 +1,7 @@
 import React, {Component, ReactNode} from "react";
-import {EBayChart} from "./EBayChart";
-import {EBayChart2} from "./EBayChart2";
 import {CardSelector} from "./CardSelector";
 import {Banner} from "./header/Banner";
-import {CardImage} from "./CardImage";
+import {CardDisplay} from "./display/CardDisplay";
 import data from "../data/data";
 
 export class Page extends Component<{}, {}> {
@@ -19,7 +17,7 @@ export class Page extends Component<{}, {}> {
     };
 
     componentDidMount() {
-        fetch('foo.json')
+        fetch('/api/data.json')
             .then(response => response.json())
             .then(data => this.setState({data}));
     }
@@ -30,12 +28,8 @@ export class Page extends Component<{}, {}> {
                 <Banner/>
                 <div style={{maxWidth: '800px', margin: '0 auto'}}>
                     <CardSelector callback={this.handleChange}/>
-                    <br/>
-                    <br/>
-                    <CardImage card={this.state.selectedOption}/>
-                    <br/>
-                    <br/>
-                    {this.state.selectedOption && <EBayChart2 data={data[this.state.selectedOption.value]}/>}
+                    <CardDisplay card={this.state.selectedOption}
+                                 data={data} />
                 </div>
             </React.Fragment>
         );

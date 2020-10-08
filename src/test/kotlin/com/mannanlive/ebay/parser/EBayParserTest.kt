@@ -7,6 +7,7 @@ import org.joda.time.format.DateTimeFormat
 import org.junit.Assert
 import org.junit.Test
 import java.io.File
+import kotlin.math.roundToInt
 
 class EBayParserTest {
     private val outFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
@@ -23,7 +24,8 @@ class EBayParserTest {
             )
         )
 
-        Assert.assertThat(output.size, equalTo(44))
+        Assert.assertThat(output.size, equalTo(32))
+        Assert.assertThat(output.sumByDouble { it.price.toDouble() }.roundToInt(), equalTo(1114))
     }
 
     @Test
@@ -50,7 +52,7 @@ class EBayParserTest {
             //need to add filter list for lot items
             val formatted = output
                 .sortedBy { it.date }
-                .map { arrayOf(outFormatter.print(it.date), it.price) }
+                .map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
             results[paddedLeftId] = formatted
             Thread.sleep(1000)
             println("processed $i...")
