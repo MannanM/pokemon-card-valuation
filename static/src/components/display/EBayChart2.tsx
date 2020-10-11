@@ -1,5 +1,5 @@
 import React from "react";
-import {TimeEvent, TimeRange, TimeSeries} from "pondjs";
+import {TimeRange, TimeSeries} from "pondjs";
 import {
     Baseline,
     ChartContainer,
@@ -11,7 +11,7 @@ import {
 } from "react-timeseries-charts";
 
 export interface EBayChart2Props {
-    data: Array<Array<any>>
+    series: TimeSeries
 }
 
 export interface EBayChart2State {
@@ -39,17 +39,9 @@ export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State
     };
 
     render() {
-        const series = new TimeSeries({
-            name: "ebay-sold-price",
-            columns: ["time", "price", "ebayid"],
-            points: this.props.data.map(([date, value, id]) => [
-                new Date(date),
-                value,
-                id
-            ])
-        });
-        const start = new Date(series.range().begin().getTime() - (24 * 60 * 60 * 1000));
-        const end = new Date(series.range().end().getTime() + (24 * 60 * 60 * 1000));
+        const series = this.props.series;
+        const start = new Date(series.begin().getTime() - (24 * 60 * 60 * 1000));
+        const end = new Date(series.end().getTime() + (24 * 60 * 60 * 1000));
         const highlight = this.state.highlight;
         let text = `Price: $ -, time: -:--`;
         let infoValues = [];
@@ -83,7 +75,7 @@ export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State
                                     label="Sold $AUD"
                                     labelOffset={-5}
                                     min={0}
-                                    max={series.max("price") + series.stdev("price")}
+                                    max={series.max("price") + series.stdev("price", e => e)}
                                     width="70"
                                     type="linear"
                                     format="$,.2f"
@@ -102,8 +94,8 @@ export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State
                                     />
                                     <Baseline
                                         axis="price-range"
-                                        value={series.avg("price")}
-                                        label={`Average Price $${series.avg('price').toFixed(2)}`}
+                                        value={series.avg("price", e => e)}
+                                        label={`Average Price $${series.avg('price', e => e).toFixed(2)}`}
                                         position="right"
                                     />
                                 </Charts>
