@@ -1,0 +1,12 @@
+{
+  "sets": [
+    {
+      "name": "Sword & Shield - Base Set",
+      "value": "SWSH1"
+    },
+    {
+      "name": "Sword & Shield - Rebel Clash",
+      "value": "SWSH2"
+    }
+  ]
+}
