@@ -1,26 +1,27 @@
 import React from "react";
+import moment from "moment";
 import {TimeRange, TimeSeries} from "pondjs";
 import {
-    Baseline,
     ChartContainer,
     ChartRow,
     Charts,
     Resizable,
     ScatterChart,
-    YAxis
+    YAxis,
 } from "react-timeseries-charts";
+import TrendLine from "./TrendLine";
 
-export interface EBayChart2Props {
+export interface EBayChartProps {
     series: TimeSeries
 }
 
-export interface EBayChart2State {
+export interface EBayChartState {
     hover: any,
     highlight: any,
     tracker: any
 }
 
-export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State> {
+export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
     state = {
         hover: null,
         highlight: null,
@@ -43,19 +44,27 @@ export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State
         const start = new Date(series.begin().getTime() - (24 * 60 * 60 * 1000));
         const end = new Date(series.end().getTime() + (24 * 60 * 60 * 1000));
         const highlight = this.state.highlight;
-        let text = `Price: $ -, time: -:--`;
+        let text = '.';
         let infoValues = [];
         if (highlight) {
-            const speedText = `$${highlight.event.get(highlight.column).toFixed(2)}`;
-            text = `
-                Price: ${speedText},
-                time: ${this.state.highlight.event.timestamp().toLocaleDateString()}:${this.state.highlight.event.timestamp().toLocaleTimeString()} 
+            const priceText = `${highlight.event.get(highlight.column).toFixed(2)}`;
+            text = `Price $AUD ${priceText} sold at
+                ${moment(this.state.highlight.event.timestamp()).format('LLL')} 
             `;
-            infoValues = [{label: "Last Price", value: speedText}];
+            infoValues = [{label: '$AUD', value: priceText}];
         }
 
         return (
-            <div>
+            <div style={{
+                border: '15px solid #ffe268',
+                padding: '10px',
+                borderRadius: '10px',
+                fontFamily: 'sans-serif',
+                background: 'url(https://png.pngtree.com/thumb_back/fh260/background/20200713/pngtree-old-paper-texture-background-vintage-style-image_352872.jpg) repeat'
+            }}>
+                <div style={{paddingBottom: '10px'}}>
+                    eBay Auction History
+                </div>
                 <div>
                     <Resizable>
                         <ChartContainer
@@ -92,12 +101,13 @@ export class EBayChart2 extends React.Component<EBayChart2Props, EBayChart2State
                                         highlight={this.state.highlight}
                                         radius={5}
                                     />
-                                    <Baseline
+
+                                    <TrendLine
                                         axis="price-range"
-                                        value={series.avg("price", e => e)}
-                                        label={`Average Price $${series.avg('price', e => e).toFixed(2)}`}
-                                        position="right"
+                                        column={'price'}
+                                        series={series}
                                     />
+
                                 </Charts>
                             </ChartRow>
                         </ChartContainer>

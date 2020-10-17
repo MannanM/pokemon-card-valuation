@@ -1,0 +1,20 @@
+{
+  "sets": [
+    {
+      "name": "Sword & Shield - Base Set",
+      "value": "SWSH1"
+    },
+    {
+      "name": "Sword & Shield - Rebel Clash",
+      "value": "SWSH2"
+    },
+    {
+      "name": "Sword & Shield - Darkness Ablaze",
+      "value": "SWSH3"
+    },
+    {
+      "name": "Sword & Shield - Champion's Path",
+      "value": "SWSH35"
+    }
+  ]
+}

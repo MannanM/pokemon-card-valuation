@@ -1,58 +1,54 @@
 import React, {Component, ReactNode} from 'react';
 import {TimeRangeEvent, TimeSeries} from 'pondjs';
 import {CardImage} from './CardImage';
-import {EBayChart2} from './EBayChart2';
+import {EBayChart} from '../charts/EBayChart';
 import {CardStats} from './CardStats';
+import {CardData} from '../../data/Api';
 
 interface CardDisplayProps {
-    card: any,
-    data: any
+    cardSet: string,
+    cardId: string,
+    card: CardData
 }
 
-interface CardDisplayState {
-}
-
-export class CardDisplay extends Component<CardDisplayProps, CardDisplayState> {
+export class CardDisplay extends Component<CardDisplayProps> {
     constructor(props: CardDisplayProps) {
         super(props);
     }
 
     render(): ReactNode {
-        if (this.props.card?.value) {
-            const series = this.getTimeSeries();
-            const minMax = this.getMinMax(series);
+        const series = this.getTimeSeries(this.props.card.data);
+        const minMax = this.getMinMax(series);
 
-            return <React.Fragment>
-                <div style={{width: '600px', margin: '20px auto'}}>
-                    <CardImage card={this.props.card}/>
-                    <CardStats
-                        name={this.props.card.label}
-                        first={series.begin()}
-                        last={series.end()}
-                        times={series.count()}
-                        minPrice={minMax.min.get('price')}
-                        minId={minMax.min.get('ebayid')}
-                        maxPrice={minMax.max.get('price')}
-                        maxId={minMax.max.get('ebayid')}
-                        median={series.median('price', (e) => e)}
-                    />
-                </div>
-                <EBayChart2 series={series}/>
-            </React.Fragment>;
-        } else {
-            return <React.Fragment/>;
-        }
+        return <React.Fragment>
+            <div style={{width: '600px', height: '342px', margin: '20px auto'}}>
+                <CardImage cardId={this.props.cardId} cardName={this.props.card.name} cardSet={this.props.cardSet}/>
+                <CardStats
+                    name={this.props.card.name}
+                    first={series.begin()}
+                    last={series.end()}
+                    times={this.props.card.data.length}
+                    minPrice={minMax.min.get('price')}
+                    minId={minMax.min.get('ebayid')}
+                    maxPrice={minMax.max.get('price')}
+                    maxId={minMax.max.get('ebayid')}
+                    median={series.median('price', (e) => e)}
+                />
+            </div>
+            <EBayChart series={series}/>
+        </React.Fragment>;
     }
 
-    private getTimeSeries(): TimeSeries {
+    private getTimeSeries(data: any): TimeSeries {
+        const points = data.length ? data.map(([date, value, id]) => [
+            new Date(date),
+            value,
+            id
+        ]) : [[new Date(), 0, 0]];
         return new TimeSeries({
             name: 'ebay-sold-price',
             columns: ['time', 'price', 'ebayid'],
-            points: this.props.data[this.props.card.value].map(([date, value, id]) => [
-                new Date(date),
-                value,
-                id
-            ])
+            points: points
         });
     }
 

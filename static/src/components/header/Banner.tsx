@@ -16,7 +16,7 @@ export class Banner extends Component {
                 fontFamily: 'sans-serif'
             }}>
                 <h1>
-                    Pokemon Card Valuation Tool
+                    Pokémon Card Valuation Tool
                 </h1>
             </div>
             <div style={{float:'right', paddingTop: '20px'}}>
