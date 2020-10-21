@@ -4,11 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.mannanlive.ebay.EBayClient
 import com.mannanlive.ebay.parser.EBayParser
 import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormatter
 import java.io.File
 import java.math.BigDecimal
 
 class SeriesCollector {
-    private val outFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm")
+    companion object {
+        val outFormatter: DateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm")
+    }
     private val eBayClient = EBayClient()
     private val eBayParser = EBayParser()
 
@@ -19,11 +22,11 @@ class SeriesCollector {
             val paddedLeftId = card.id.toString().padStart(3, '0')
             val searchCardId = searchCardId(card, paddedLeftId)
             val history = eBayClient.getHistory(
-                "${collection.searchString}+${searchCardId}+${card.name.replace(" ", "+").replace("&", "")}",
+                "${collection.searchString}+${searchCardId}+${card.searchString}",
                 collection.exclusionStrings.joinToString("+")
             )
 
-            val output = eBayParser.process(history)
+            val output = eBayParser.process(history) + card.manualListings
             //need to add filter list for lot items
             val formatted = output
                 .filter { !card.ignoreTrades.contains(it.id) }

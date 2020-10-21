@@ -8,8 +8,8 @@ class SwordShieldDarknessAblaze {
             listOf(
                 Card(1, "Butterfree V", CardType.V),
                 Card(2, "Butterfree VMAX", CardType.VMAX),
-                Card(19, "Charizard V", CardType.V, listOf(383718316849)),
-                Card(20, "Charizard VMAX", CardType.VMAX, listOf(373136448383)),
+                Card(19, "Charizard V", CardType.V, ignoreTrades = listOf(383718316849)),
+                Card(20, "Charizard VMAX", CardType.VMAX, ignoreTrades = listOf(373136448383)),
                 Card(21, "Houndoom V", CardType.V),
                 Card(33, "Centiskorch V", CardType.V),
                 Card(34, "Centiskorch VMAX", CardType.VMAX),

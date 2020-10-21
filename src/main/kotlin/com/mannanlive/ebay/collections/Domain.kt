@@ -1,5 +1,8 @@
 package com.mannanlive.ebay.collections
 
+import com.mannanlive.ebay.collections.SeriesCollector.Companion.outFormatter
+import com.mannanlive.ebay.parser.EBayParser
+
 data class PopulatedCard(
     val name: String,
     val type: CardType,
@@ -10,8 +13,21 @@ data class Card(
     val id: Int,
     val name: String,
     val type: CardType,
-    val ignoreTrades: List<Long> = listOf()
-)
+    val alternateSearchString: String = name,
+    val ignoreTrades: List<Long> = listOf(),
+    val addedTrades: List<Array<Any>> = listOf()
+) {
+    val manualListings: List<EBayParser.Listing>
+        get() = addedTrades.map {
+            EBayParser.Listing(
+                it[2] as Long,
+                (it[1] as Double).toBigDecimal(),
+                outFormatter.parseDateTime(it[0].toString()))
+        }
+
+    val searchString: String
+        get() = name.replace(" ", "+").replace("&", "")
+}
 
 enum class CardType {
     NORMAL,
