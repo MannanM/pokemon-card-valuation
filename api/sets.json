@@ -1,20 +1,34 @@
 {
-  "sets": [
+  "expansions": [
     {
-      "name": "Sword & Shield - Base Set",
-      "value": "SWSH1"
+      "name": "Sword & Shield",
+      "sets": [
+        {
+          "name": "Base Set",
+          "value": "SWSH1"
+        },
+        {
+          "name": "Rebel Clash",
+          "value": "SWSH2"
+        },
+        {
+          "name": "Darkness Ablaze",
+          "value": "SWSH3"
+        },
+        {
+          "name": "Champion's Path",
+          "value": "SWSH35"
+        }
+      ]
     },
     {
-      "name": "Sword & Shield - Rebel Clash",
-      "value": "SWSH2"
-    },
-    {
-      "name": "Sword & Shield - Darkness Ablaze",
-      "value": "SWSH3"
-    },
-    {
-      "name": "Sword & Shield - Champion's Path",
-      "value": "SWSH35"
+      "name": "XY",
+      "sets": [
+        {
+          "name": "Evolutions",
+          "value": "XY12"
+        }
+      ]
     }
   ]
 }
