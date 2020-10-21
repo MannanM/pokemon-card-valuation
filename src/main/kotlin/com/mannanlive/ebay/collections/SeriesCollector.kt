@@ -12,27 +12,21 @@ class SeriesCollector {
     private val eBayClient = EBayClient()
     private val eBayParser = EBayParser()
 
-    fun collect(
-        setName: String,
-        set: List<Card>,
-        searchString: String,
-        exclusionStrings: List<String>,
-        filterIds: List<Long> = listOf()
-    ) {
+    fun collect(collection: SeriesCollection) {
         val results = mutableMapOf<String, PopulatedCard>()
 
-        for (card in set) {
+        for (card in collection.set) {
             val paddedLeftId = card.id.toString().padStart(3, '0')
             val searchCardId = searchCardId(card, paddedLeftId)
             val history = eBayClient.getHistory(
-                "$searchString+${searchCardId}+${card.name.replace(" ", "+")}",
-                exclusionStrings.joinToString("+")
+                "${collection.searchString}+${searchCardId}+${card.name.replace(" ", "+")}",
+                collection.exclusionStrings.joinToString("+")
             )
 
             val output = eBayParser.process(history)
             //need to add filter list for lot items
             val formatted = output
-                .filter { !filterIds.contains(it.id) }
+                .filter { !card.ignoreTrades.contains(it.id) }
                 .sortedBy { it.date }
                 .map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
             results[paddedLeftId] = PopulatedCard(card.name, card.type, formatted)
@@ -40,14 +34,14 @@ class SeriesCollector {
             println("processed ${card.id}...")
         }
 
-        File("./static/src/data/$setName.json").writeText(
+        File("./static/src/data/${collection.setName}.json").writeText(
             ObjectMapper().writeValueAsString(
                 results
             )
         )
 
         var trades = 0
-        var lastTrades = mutableListOf<BigDecimal>()
+        val lastTrades = mutableListOf<BigDecimal>()
         results.values.forEach {
             trades += it.data.size
             lastTrades.add((it.data.lastOrNull()?.get(1) ?: BigDecimal.ZERO) as BigDecimal)

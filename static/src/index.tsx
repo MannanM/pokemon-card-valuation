@@ -3,16 +3,12 @@ import * as ReactDOM from 'react-dom';
 
 import { Page } from './components/Page';
 
-import "./data/sets.json"
-import "./data/SWSH1.json"
-import "./data/SWSH2.json"
-import "./data/SWSH3.json"
-import "./data/SWSH35.json"
+import './data/sets.json'
 
-import "./img/SWSH1.png"
-import "./img/SWSH2.png"
-import "./img/SWSH3.png"
-import "./img/SWSH35.png"
+for (const set in ['SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'XY12']) {
+    import(`./img/${set}.png`);
+    import(`./data/${set}.json`);
+}
 
 ReactDOM.render(
     <Page/>,

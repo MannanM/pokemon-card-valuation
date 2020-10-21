@@ -3,13 +3,13 @@ import {CardSelector} from "./CardSelector";
 import {Banner} from "./header/Banner";
 import {About} from "./display/About";
 import {CardDisplay} from "./display/CardDisplay";
-import {Api, CardData, CardSet} from "../data/Api";
+import {Api, CardData, Expansion} from "../data/Api";
 
 interface PageState {
     selectedOption: any,
     selectedSet: any,
     cards: Map<string, CardData>,
-    sets: CardSet[],
+    expansions: Expansion[],
     defaultSet: string,
     defaultCard: string,
 }
@@ -25,7 +25,7 @@ export class Page extends Component<{}, PageState> {
             selectedOption: null,
             selectedSet: null,
             cards: new Map<string, CardData>(),
-            sets: [],
+            expansions: [],
             defaultSet: pageHash[0],
             defaultCard: pageHash.length > 1 ? pageHash[1] : ''
         };
@@ -72,15 +72,20 @@ export class Page extends Component<{}, PageState> {
     }
 
     componentDidMount() {
-        this.api.getSets().then(data => this.setState({sets: data}));
+        this.api.getExpansions().then(data => this.setState({expansions: data}));
     }
 
     render(): ReactNode {
-        const setOptions = this.state.sets.map(set => {
+        const setOptions = this.state.expansions.map(expansion => {
             return {
-                value: set.value,
-                label: `${set.name} [${set.value}]`,
-                image: `${set.value}.png`
+                label: expansion.name,
+                options: expansion.sets.map(set => {
+                    return {
+                        value: set.value,
+                        label: set.name,
+                        image: `${set.value}.png`
+                    }
+                })
             }
         });
         const options = Object.keys(this.state.cards).map(key => {

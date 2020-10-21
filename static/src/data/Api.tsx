@@ -5,13 +5,13 @@ export class Api {
         this.baseUrl = baseUrl;
     }
 
-    getSets(): Promise<CardSet[]> {
+    getExpansions(): Promise<Expansion[]> {
         console.log('Fetching available set');
         return fetch(`${this.baseUrl}/api/sets.json`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                return data.sets;
+                return data.expansions;
             });
     }
 
@@ -26,6 +26,10 @@ export class Api {
     }
 }
 
+export interface Expansion {
+    name: String,
+    sets: CardSet[],
+}
 export interface CardSet {
     name: String,
     value: String,
