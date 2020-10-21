@@ -1,21 +1,43 @@
 package com.mannanlive.ebay.collections
 
-class XyEvolutionsPath {
+class XyEvolutions {
     companion object {
         val collection = SeriesCollection(
             "XY12",
             listOf(
                 Card(1, "Venusaur EX", CardType.EX),
                 Card(2, "M Venusaur EX", CardType.MEGA_EX),
-                Card(3, "Caterpie", CardType.NORMAL),
-                Card(4, "Metapod", CardType.NORMAL),
-                Card(5, "Weedle", CardType.NORMAL),
-                Card(6, "Kakuna", CardType.NORMAL),
-                Card(7, "Beedrill", CardType.NORMAL),
-                Card(8, "Tangela", CardType.NORMAL),
                 Card(9, "Charmander", CardType.NORMAL),
                 Card(10, "Charmeleon", CardType.NORMAL),
-                Card(11, "Charizard", CardType.NORMAL),
+                Card(11, "Charizard", CardType.NORMAL, listOf(
+                    193692682158,
+                    264851427258,
+                    264850483110,
+                    264739377525,
+                    203061425327,
+                    274481445989,
+                    //PSA
+                    174483978035,
+                    193710271029,
+                    233734416973,
+                    174483980058,
+                    174483979161,
+                    114462447190,
+                    164449272200,
+                    164445387262,
+                    264794659113,
+                    164406961897,
+                    164406966255,
+                    224179547582,
+                    164377939311,
+                    264850479441,
+                    264866061795,
+                    164382485512,
+                    //multiple
+                    283963637440,
+                    184489075013,
+                    383765414719
+                )),
                 Card(12, "Charizard EX", CardType.EX),
                 Card(13, "M Charizard EX", CardType.MEGA_EX),
                 Card(14, "Vulpix", CardType.NORMAL),
@@ -104,29 +126,7 @@ class XyEvolutionsPath {
                 Card(105, "M Pidgeot EX", CardType.FULL_ART),
                 Card(106, "Dragonite EX", CardType.FULL_ART),
                 Card(107, "Brock's Grit", CardType.FULL_ART),
-                Card(108, "Misty's Determination", CardType.EX,
-                    listOf(
-                        //multiples
-                        184489075013,
-                        383765414719,
-                        //PSA
-                        174483978035,
-                        193710271029,
-                        233734416973,
-                        174483980058,
-                        174483979161,
-                        114462447190,
-                        164449272200,
-                        164445387262,
-                        264794659113,
-                        164406961897,
-                        164406966255,
-                        224179547582,
-                        164377939311,
-                        264850479441,
-                        264866061795,
-                        164382485512
-                    )),
+                Card(108, "Misty's Determination", CardType.EX),
                 Card(109, "Exeggutor", CardType.SECRET_RARE),
                 Card(110, "Flying Pikachu", CardType.SECRET_RARE),
                 Card(111, "Surfing Pikachu", CardType.SECRET_RARE),

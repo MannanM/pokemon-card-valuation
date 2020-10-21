@@ -23,5 +23,6 @@ enum class CardType {
     SHINY,
     EX,
     MEGA_EX,
-    BREAK
+    BREAK,
+    GX
 }

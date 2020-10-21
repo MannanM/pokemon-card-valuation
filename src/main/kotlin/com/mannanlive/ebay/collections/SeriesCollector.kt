@@ -19,7 +19,7 @@ class SeriesCollector {
             val paddedLeftId = card.id.toString().padStart(3, '0')
             val searchCardId = searchCardId(card, paddedLeftId)
             val history = eBayClient.getHistory(
-                "${collection.searchString}+${searchCardId}+${card.name.replace(" ", "+")}",
+                "${collection.searchString}+${searchCardId}+${card.name.replace(" ", "+").replace("&", "")}",
                 collection.exclusionStrings.joinToString("+")
             )
 

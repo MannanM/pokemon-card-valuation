@@ -6,7 +6,7 @@ import { GoogleAnalytics } from './analytics/GoogleAnalytics';
 
 import './data/sets.json'
 
-for (const set in ['SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'XY12']) {
+for (const set in ['SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'XY12', 'SM12']) {
     import(`./img/${set}.png`);
     import(`./data/${set}.json`);
 }

@@ -29,6 +29,15 @@
           "value": "XY12"
         }
       ]
+    },
+    {
+      "name": "Sun & Moon",
+      "sets": [
+        {
+          "name": "Cosmic Eclipse",
+          "value": "SM12"
+        }
+      ]
     }
   ]
 }
