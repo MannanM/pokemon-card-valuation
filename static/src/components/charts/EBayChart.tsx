@@ -1,6 +1,6 @@
-import React from "react";
-import moment from "moment";
-import {TimeRange, TimeSeries} from "pondjs";
+import React from 'react';
+import moment from 'moment';
+import {TimeRange, TimeSeries} from 'pondjs';
 import {
     ChartContainer,
     ChartRow,
@@ -8,8 +8,9 @@ import {
     Resizable,
     ScatterChart,
     YAxis,
-} from "react-timeseries-charts";
-import TrendLine from "./TrendLine";
+} from 'react-timeseries-charts';
+import TrendLine from './TrendLine';
+import {GoogleAnalytics} from '../../analytics/GoogleAnalytics';
 
 export interface EBayChartProps {
     series: TimeSeries
@@ -29,6 +30,7 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
     };
 
     handleSelectionChanged = point => {
+        GoogleAnalytics.event('eBay', 'open', point.event.get('ebayid'));
         const win = window.open(`https://www.ebay.com.au/itm/${point.event.get('ebayid')}`, '_blank');
         win.focus();
     };
@@ -76,25 +78,25 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
                             onTrackerChanged={tracker => this.setState({tracker})}
                         >
                             <ChartRow
-                                height="150"
+                                height='150'
                                 trackerInfoValues={infoValues}
                             >
                                 <YAxis
-                                    id="price-range"
-                                    label="Sold $AUD"
+                                    id='price-range'
+                                    label='Sold $AUD'
                                     labelOffset={-5}
                                     min={0}
-                                    max={series.max("price") + series.stdev("price", e => e)}
-                                    width="70"
-                                    type="linear"
-                                    format="$,.2f"
+                                    max={series.max('price') + series.stdev('price', e => e)}
+                                    width='70'
+                                    type='linear'
+                                    format='$,.2f'
                                 />
                                 <Charts>
                                     <ScatterChart
-                                        axis="price-range"
+                                        axis='price-range'
                                         series={series}
-                                        columns={["price"]}
-                                        format=".2f"
+                                        columns={['price']}
+                                        format='.2f'
                                         selected={null}
                                         onSelectionChange={p => this.handleSelectionChanged(p)}
                                         onMouseNear={p => this.handleMouseNear(p)}
@@ -103,7 +105,7 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
                                     />
 
                                     <TrendLine
-                                        axis="price-range"
+                                        axis='price-range'
                                         column={'price'}
                                         series={series}
                                     />

@@ -53,7 +53,8 @@ module.exports = (env) => {
         },
         plugins: [
             new webpack.DefinePlugin({
-                'process.env.BASE_URL': JSON.stringify(env.BASE_URL)
+                'process.env.BASE_URL': JSON.stringify(env.BASE_URL),
+                'process.env.GA_TRACKING': JSON.stringify(env.GA_TRACKING)
             }),
             //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
             new HtmlWebpackPlugin({

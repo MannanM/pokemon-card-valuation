@@ -2,15 +2,16 @@
   "main": "index.tsx",
   "homepage": "https://MannanM.github.io/pokemon-card-valuation",
   "scripts": {
-    "start": "webpack-dev-server --mode development --inline --hot --open --env.BASE_URL=http://localhost:8080",
-    "build": "webpack  --mode development --env.BASE_URL=http://localhost:8080",
-    "predeploy": "webpack -p --env.BASE_URL=https://mannanm.github.io/pokemon-card-valuation",
+    "start": "webpack-dev-server --mode development --inline --hot --open --env.BASE_URL=http://localhost:8080 --env.GA_TRACKING=UA-000000-01",
+    "build": "webpack  --mode development --env.BASE_URL=http://localhost:8080 --env.GA_TRACKING=UA-000000-01",
+    "predeploy": "webpack -p --env.BASE_URL=https://mannanm.github.io/pokemon-card-valuation --env.GA_TRACKING=UA-180959283-1",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "pondjs": "0.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.2.0",
     "react-select": "^3.1.0",
     "react-timeseries-charts": "0.16.1"
   },

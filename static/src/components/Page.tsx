@@ -4,6 +4,7 @@ import {Banner} from "./header/Banner";
 import {About} from "./display/About";
 import {CardDisplay} from "./display/CardDisplay";
 import {Api, CardData, Expansion} from "../data/Api";
+import {GoogleAnalytics} from "../analytics/GoogleAnalytics";
 
 interface PageState {
     selectedOption: any,
@@ -62,8 +63,10 @@ export class Page extends Component<{}, PageState> {
         console.log(`Selected: ${selectedSet?.value} ${selectedCard?.value}`);
         if (selectedSet?.value) {
             if (selectedCard?.value) {
+                GoogleAnalytics.event('UserSelect', 'Card', selectedSet.value + '-' + selectedCard.value);
                 window.location.hash = selectedSet.value + '-' + selectedCard.value;
             } else {
+                GoogleAnalytics.event('UserSelect', 'Set', selectedSet.value);
                 window.location.hash = selectedSet.value;
             }
         } else {
