@@ -38,6 +38,19 @@
           "value": "SM12"
         }
       ]
+    },
+    {
+      "name": "Base Set",
+      "sets": [
+        {
+          "name": "Base Set",
+          "value": "BS"
+        },
+        {
+          "name": "Base Set (Shadowless)",
+          "value": "BSS"
+        }
+      ]
     }
   ]
 }

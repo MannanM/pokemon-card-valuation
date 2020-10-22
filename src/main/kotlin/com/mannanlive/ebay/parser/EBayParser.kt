@@ -44,7 +44,11 @@ class EBayParser {
     }
 
     private val String.extractAmount: BigDecimal
-        get() = this.replace(" postage", "").split("$")[1].toBigDecimal()
+        get() = this
+            .replace(",", "")
+            .replace(" postage", "")
+            .split("$")[1]
+            .toBigDecimal()
 
     private fun getDate(row: Element): DateTime {
         val date = formatter.parseDateTime(row.select("li.timeleft").text())

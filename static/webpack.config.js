@@ -54,7 +54,8 @@ module.exports = (env) => {
         plugins: [
             new webpack.DefinePlugin({
                 'process.env.BASE_URL': JSON.stringify(env.BASE_URL),
-                'process.env.GA_TRACKING': JSON.stringify(env.GA_TRACKING)
+                'process.env.GA_TRACKING': JSON.stringify(env.GA_TRACKING),
+                'process.env.BUILD_TIME': JSON.stringify(new Date().toISOString())
             }),
             //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
             new HtmlWebpackPlugin({

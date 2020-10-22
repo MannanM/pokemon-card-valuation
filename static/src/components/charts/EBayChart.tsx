@@ -30,7 +30,7 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
     };
 
     handleSelectionChanged = point => {
-        GoogleAnalytics.event('eBay', 'open', point.event.get('ebayid'));
+        GoogleAnalytics.event('UserSelect', 'ScatterClick', point.event.get('ebayid'));
         const win = window.open(`https://www.ebay.com.au/itm/${point.event.get('ebayid')}`, '_blank');
         win.focus();
     };

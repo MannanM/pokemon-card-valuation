@@ -24,7 +24,13 @@ export class CardSelector extends React.Component<CardSelectorProps> {
     componentDidUpdate(prevProps) {
         if (prevProps.options.length === 0 && this.props.options.length !== 0) {
             if (this.props.defaultValue) {
-                this.handleChange(this.props.options.find(x => x.value === this.props.defaultValue));
+                let array = this.props.options;
+                //options can be nested in groups, so check if they have values
+                if (!this.props.options[0].value) {
+                    //if they don't assume they are nested and pull them out
+                    array = this.props.options.reduce((acc, val) => acc.concat(val.options), []);
+                }
+                this.handleChange(array.find(x => x.value === this.props.defaultValue));
             }
         }
     }
