@@ -18,8 +18,10 @@ class SeriesCollector {
     fun collect(collection: SeriesCollection) {
         val results = mutableMapOf<String, PopulatedCard>()
 
+        val padRequired = calculatePadRequired(collection.set)
+
         for (card in collection.set) {
-            val paddedLeftId = card.id.toString().padStart(3, '0')
+            val paddedLeftId = card.prefix + card.id.toString().padStart(padRequired, '0')
             val searchCardId = searchCardId(card, paddedLeftId)
             val history = eBayClient.getHistory(
                 "${collection.searchString}+${searchCardId}+${card.searchString}",
@@ -34,7 +36,7 @@ class SeriesCollector {
                 .map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
             results[paddedLeftId] = PopulatedCard(card.name, card.type, formatted)
             Thread.sleep(1000)
-            println("processed ${card.id}...")
+            println("processed $paddedLeftId... found ${formatted.size}")
         }
 
         File("./static/src/data/${collection.setName}.json").writeText(
@@ -55,12 +57,22 @@ class SeriesCollector {
         println("Average Last: ${sumByDouble / lastTrades.filter { it == BigDecimal.ZERO }.size}")
     }
 
+    private fun calculatePadRequired(cardSet: List<Card>): Int {
+        val maxCardId = cardSet.maxBy { it.id }?.id ?: 0
+        return when {
+            maxCardId >= 100 -> 3
+            maxCardId >= 10 -> 2
+            else -> 1
+        }
+    }
+
     private fun searchCardId(card: Card, paddedLeftId: String): String {
-        return if (card.id < 100) {
+        val cardId = card.prefix + card.id.toString()
+        return if (cardId != paddedLeftId) {
             //eBay supports searching with an or condition, so this will search for e.g. (8,008)
             "%28${card.id}%2C${paddedLeftId}%29"
         } else {
-            card.id.toString()
+            cardId
         }
     }
 }

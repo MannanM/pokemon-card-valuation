@@ -1,4 +1,9 @@
-package com.mannanlive.ebay.collections
+package com.mannanlive.ebay.collections.base
+
+import com.mannanlive.ebay.collections.Card
+import com.mannanlive.ebay.collections.CardType
+import com.mannanlive.ebay.collections.SeriesCollection
+import com.mannanlive.ebay.collections.SeriesCollector
 
 class BaseSetBaseSet {
     companion object {
@@ -41,7 +46,7 @@ class BaseSetBaseSet {
             Card(21, "Electrode", CardType.NORMAL),
             Card(22, "Pidgeotto", CardType.NORMAL),
             Card(23, "Arcanine", CardType.NORMAL),
-            Card(24, "Charmeleon", CardType.NORMAL),
+            Card(24, "Charmeleon", CardType.NORMAL, ignoreTrades = listOf(264836611565)),
             Card(25, "Dewgong", CardType.NORMAL),
             Card(26, "Dratini", CardType.NORMAL),
             Card(27, "Farfetch'd", CardType.NORMAL),
@@ -61,9 +66,9 @@ class BaseSetBaseSet {
             Card(41, "Seel", CardType.NORMAL),
             Card(42, "Wartortle", CardType.NORMAL),
             Card(43, "Abra", CardType.NORMAL),
-            Card(44, "Bulbasaur", CardType.NORMAL),
+            Card(44, "Bulbasaur", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207)),
             Card(45, "Caterpie", CardType.NORMAL),
-            Card(46, "Charmander", CardType.NORMAL),
+            Card(46, "Charmander", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207, 264836611565)),
             Card(47, "Diglett", CardType.NORMAL),
             Card(48, "Doduo", CardType.NORMAL),
             Card(49, "Drowzee", CardType.NORMAL),
@@ -80,7 +85,7 @@ class BaseSetBaseSet {
             Card(60, "Ponyta", CardType.NORMAL),
             Card(61, "Rattata", CardType.NORMAL),
             Card(62, "Sandshrew", CardType.NORMAL),
-            Card(63, "Squirtle", CardType.NORMAL),
+            Card(63, "Squirtle", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207)),
             Card(64, "Starmie", CardType.NORMAL),
             Card(65, "Staryu", CardType.NORMAL),
             Card(66, "Tangela", CardType.NORMAL),

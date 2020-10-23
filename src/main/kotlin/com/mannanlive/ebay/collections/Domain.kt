@@ -15,7 +15,8 @@ data class Card(
     val type: CardType,
     val alternateSearchString: String = name,
     val ignoreTrades: List<Long> = listOf(),
-    val addedTrades: List<Array<Any>> = listOf()
+    val addedTrades: List<Array<Any>> = listOf(),
+    val prefix: String = ""
 ) {
     val manualListings: List<EBayParser.Listing>
         get() = addedTrades.map {

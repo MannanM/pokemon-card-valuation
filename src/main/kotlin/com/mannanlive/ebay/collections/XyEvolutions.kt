@@ -26,7 +26,7 @@ class XyEvolutions {
                 Card(22, "M Blastoise EX", CardType.MEGA_EX),
                 Card(26, "Slowbro EX", CardType.EX),
                 Card(27, "M Slowbro EX", CardType.MEGA_EX),
-                Card(35, "Pikachu", CardType.NORMAL),
+                Card(35, "Pikachu", CardType.NORMAL, ignoreTrades = listOf(164453932135)),
                 Card(51, "Mewtwo", CardType.NORMAL),
                 Card(52, "Mewtwo EX", CardType.EX),
                 Card(53, "Mew", CardType.NORMAL),

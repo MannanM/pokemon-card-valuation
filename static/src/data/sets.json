@@ -22,6 +22,19 @@
       ]
     },
     {
+      "name": "Sun & Moon",
+      "sets": [
+        {
+          "name": "Cosmic Eclipse",
+          "value": "SM12"
+        },
+        {
+          "name": "Hidden Fates",
+          "value": "SM115"
+        }
+      ]
+    },
+    {
       "name": "XY",
       "sets": [
         {
@@ -31,17 +44,20 @@
       ]
     },
     {
-      "name": "Sun & Moon",
-      "sets": [
-        {
-          "name": "Cosmic Eclipse",
-          "value": "SM12"
-        }
-      ]
-    },
-    {
       "name": "Base Set",
       "sets": [
+        {
+          "name": "Team Rocket",
+          "value": "TR"
+        },
+        {
+          "name": "Fossil",
+          "value": "FO"
+        },
+        {
+          "name": "Jungle",
+          "value": "JU"
+        },
         {
           "name": "Base Set",
           "value": "BS"

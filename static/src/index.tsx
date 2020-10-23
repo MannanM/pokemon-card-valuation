@@ -6,7 +6,11 @@ import {GoogleAnalytics} from './analytics/GoogleAnalytics';
 
 import './data/sets.json'
 
-['SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'XY12', 'SM12', 'BS', 'BSS'].forEach(set => {
+[   'SWSH1', 'SWSH2', 'SWSH3', 'SWSH35',
+    'XY12',
+    'SM115', 'SM12',
+    'BS', 'BSS', 'JU', 'FO', 'TR'
+].forEach(set => {
     import(`./img/${set}.png`);
     import(`./data/${set}.json`);
 });
