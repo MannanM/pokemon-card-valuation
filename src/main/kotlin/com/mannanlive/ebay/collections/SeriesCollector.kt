@@ -1,6 +1,8 @@
 package com.mannanlive.ebay.collections
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.mannanlive.ebay.EBayClient
 import com.mannanlive.ebay.parser.EBayParser
 import org.joda.time.format.DateTimeFormat
@@ -14,8 +16,10 @@ class SeriesCollector {
     }
     private val eBayClient = EBayClient()
     private val eBayParser = EBayParser()
+    private val objectMapper = ObjectMapper().registerKotlinModule()
 
     fun collect(collection: SeriesCollection) {
+        val file = File("./static/src/data/${collection.setName}.json")
         val results = mutableMapOf<String, PopulatedCard>()
 
         val padRequired = calculatePadRequired(collection.set)
@@ -30,17 +34,19 @@ class SeriesCollector {
 
             val output = eBayParser.process(history) + card.manualListings
             //need to add filter list for lot items
-            val formatted = output
-                .filter { !card.ignoreTrades.contains(it.id) }
-                .sortedBy { it.date }
-                .map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
-            results[paddedLeftId] = PopulatedCard(card.name, card.type, formatted)
+            val new = output.map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
+            val mergeExisting = (new + existing(file, paddedLeftId))
+                .filter { !card.ignoreTrades.contains(it[2]) }
+                .distinct()
+                .sortedBy { it[0].toString() }
+
+            results[paddedLeftId] = PopulatedCard(card.name, card.type, mergeExisting)
             Thread.sleep(1000)
-            println("processed $paddedLeftId... found ${formatted.size}")
+            println("processed $paddedLeftId... found ${new.size}")
         }
 
-        File("./static/src/data/${collection.setName}.json").writeText(
-            ObjectMapper().writeValueAsString(
+        file.writeText(
+            objectMapper.writeValueAsString(
                 results
             )
         )
@@ -55,6 +61,15 @@ class SeriesCollector {
         val sumByDouble = lastTrades.sumByDouble { it.toDouble() }
         println("Total Last: $sumByDouble")
         println("Average Last: ${sumByDouble / lastTrades.filter { it == BigDecimal.ZERO }.size}")
+    }
+
+    private fun existing(file: File, paddedLeftId: String): List<Array<Any>> {
+        return if (file.exists()) {
+            val original: Map<String, PopulatedCard> = objectMapper.readValue(file)
+            original[paddedLeftId]?.data ?: listOf()
+        } else {
+            listOf()
+        }
     }
 
     private fun calculatePadRequired(cardSet: List<Card>): Int {

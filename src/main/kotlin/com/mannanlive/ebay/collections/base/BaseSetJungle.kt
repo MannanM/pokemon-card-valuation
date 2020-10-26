@@ -12,7 +12,10 @@ class BaseSetJungle {
             listOf(
                 Card(1, "Clefable", CardType.NORMAL),
                 Card(2, "Electrode", CardType.NORMAL),
-                Card(3, "Flareon", CardType.NORMAL),
+                Card(3, "Flareon", CardType.NORMAL, ignoreTrades = listOf(
+                    //misprints
+                    313237961566, 373249874286
+                )),
                 Card(4, "Jolteon", CardType.NORMAL),
                 Card(5, "Kangaskhan", CardType.NORMAL),
                 Card(6, "Mr. Mime", CardType.NORMAL),

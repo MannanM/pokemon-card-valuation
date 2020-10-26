@@ -10,7 +10,7 @@ interface CardStatsProps {
     minId: number,
     maxPrice: number,
     maxId: number,
-    median: number
+    average: number
 }
 
 export class CardStats extends Component<CardStatsProps> {
@@ -34,8 +34,8 @@ export class CardStats extends Component<CardStatsProps> {
                 <div style={cellStyle}>{this.props.times}</div>
             </div>
             <div>
-                <div style={leftCellStyle}>Median Price:</div>
-                <div style={cellStyle}>${this.props.median.toFixed(2)}</div>
+                <div style={leftCellStyle}>Average Price:</div>
+                <div style={cellStyle}>${this.props.average.toFixed(2)}</div>
             </div>
             <div>
                 <div style={leftCellStyle}>Cheapest:</div>

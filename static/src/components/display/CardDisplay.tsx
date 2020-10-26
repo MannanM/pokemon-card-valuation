@@ -32,7 +32,7 @@ export class CardDisplay extends Component<CardDisplayProps> {
                     minId={minMax.min.get('ebayid')}
                     maxPrice={minMax.max.get('price')}
                     maxId={minMax.max.get('ebayid')}
-                    median={series.median('price', (e) => e)}
+                    average={series.avg('price', (e) => e)}
                 />
             </div>
             <EBayChart series={series}/>

@@ -30,7 +30,7 @@ module.exports = (env) => {
                     use: [MiniCssExtractPlugin.loader, "css-loader"],
                 },
                 {
-                    test: /\.(png|jpg|gif|svg)$/,
+                    test: /\.(png|jpg|gif|svg|ico)$/,
                     loader: 'file-loader',
                     options: {
                         name: 'assets/img/[name].[ext]?[hash]'

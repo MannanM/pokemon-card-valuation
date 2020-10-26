@@ -33,14 +33,21 @@ class EBayParser {
     }
 
     private fun getPrice(text: String, shipping: String): BigDecimal? = try {
-        if (shipping == "Free postage") {
-            text.extractAmount
+        text.extractAmount + safeGetShipping(shipping)
+    } catch (ex: Exception) {
+        println("Unable to process: amount=$text")
+        null
+    }
+
+    private fun safeGetShipping(shipping: String): BigDecimal = try {
+        if (listOf("Free postage", "Postage not specified", "Pickup only: Free").contains(shipping)) {
+            BigDecimal.ZERO
         } else {
-            text.extractAmount + shipping.extractAmount
+            shipping.extractAmount
         }
     } catch (ex: Exception) {
-        println("Unable to process: amount=$text, shipping=$shipping")
-        null
+        println("Unable to process shipping: shipping=$shipping")
+        BigDecimal.ZERO
     }
 
     private val String.extractAmount: BigDecimal

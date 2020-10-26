@@ -12,15 +12,30 @@ class BaseSetBaseSet {
             Card(2, "Blastoise", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 283967758263,
+                392983175832,
+                124380401348,
+                392915613748,
                 //inauthentic
-                274422702526
+                274422702526,
+                224204274106,
+                //base set 2
+                124393194743
             )),
             Card(3, "Chansey", CardType.NORMAL),
             Card(4, "Charizard", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 283967758263,
-                //inauthentic
-                114204687513
+                392983175832,
+                124380401348,
+                392915613748,
+                //inauthentic / wrong
+                114204687513,
+                303608704493,
+                143679036065,
+                293641892973,
+                //already graded
+                164349921385,
+                164368549629
             )),
             Card(5, "Clefairy", CardType.NORMAL),
             Card(6, "Gyarados", CardType.NORMAL),
@@ -35,6 +50,9 @@ class BaseSetBaseSet {
             Card(15, "Venusaur", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 283967758263,
+                392983175832,
+                124380401348,
+                392915613748,
                 //inauthentic
                 283942514978
             )),
@@ -124,7 +142,7 @@ class BaseSetBaseSet {
             "BS",
             BaseSetCards,
             "base",
-            listOf("shadowless", "first", "edition", "psa", "bgs")
+            listOf("shadowless", "first", "psa", "bgs")
         )
 
         @JvmStatic

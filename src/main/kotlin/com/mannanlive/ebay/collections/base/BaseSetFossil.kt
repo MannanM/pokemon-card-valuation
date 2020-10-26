@@ -19,7 +19,10 @@ class BaseSetFossil {
                 Card(7, "Hitmonlee", CardType.NORMAL),
                 Card(8, "Hypno", CardType.NORMAL),
                 Card(9, "Kabutops", CardType.NORMAL),
-                Card(10, "Lapras", CardType.NORMAL),
+                Card(10, "Lapras", CardType.NORMAL, ignoreTrades = listOf(
+                    //multiple
+                    184483433049
+                )),
                 Card(11, "Magneton", CardType.NORMAL),
                 Card(12, "Moltres", CardType.NORMAL),
                 Card(13, "Muk", CardType.NORMAL),
@@ -74,7 +77,7 @@ class BaseSetFossil {
                 Card(62, "Mysterious Fossil", CardType.NORMAL)
             ),
             "fossil",
-            listOf("shadowless", "first", "edition", "psa", "bgs")
+            listOf("shadowless", "first", "psa", "bgs")
         )
 
         @JvmStatic
