@@ -4,20 +4,24 @@
       "name": "Sword & Shield",
       "sets": [
         {
-          "name": "Base Set",
-          "value": "SWSH1"
+          "name": "Vivid Voltage",
+          "value": "SWSH4"
         },
         {
-          "name": "Rebel Clash",
-          "value": "SWSH2"
+          "name": "Champion's Path",
+          "value": "SWSH35"
         },
         {
           "name": "Darkness Ablaze",
           "value": "SWSH3"
         },
         {
-          "name": "Champion's Path",
-          "value": "SWSH35"
+          "name": "Rebel Clash",
+          "value": "SWSH2"
+        },
+        {
+          "name": "Base Set",
+          "value": "SWSH1"
         }
       ]
     },
