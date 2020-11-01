@@ -7,27 +7,30 @@ import com.mannanlive.ebay.collections.SeriesCollector
 
 class BaseSetBaseSet {
     companion object {
+        private val bigThree = listOf(
+            283967758263,
+            392983175832,
+            124380401348,
+            392915613748,
+            392938545676,
+            //inauthentic
+            274480853756
+        )
         val BaseSetCards = listOf(
             Card(1, "Alakazam", CardType.NORMAL),
-            Card(2, "Blastoise", CardType.NORMAL, ignoreTrades = listOf(
-                //multiple
-                283967758263,
-                392983175832,
-                124380401348,
-                392915613748,
+            Card(2, "Blastoise", CardType.NORMAL, ignoreTrades = bigThree + listOf(
                 //inauthentic
                 274422702526,
                 224204274106,
+                184490368737,
                 //base set 2
                 124393194743
             )),
-            Card(3, "Chansey", CardType.NORMAL),
-            Card(4, "Charizard", CardType.NORMAL, ignoreTrades = listOf(
+            Card(3, "Chansey", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
-                283967758263,
-                392983175832,
-                124380401348,
-                392915613748,
+                392927847093
+            )),
+            Card(4, "Charizard", CardType.NORMAL, ignoreTrades = bigThree + listOf(
                 //inauthentic / wrong
                 114204687513,
                 303608704493,
@@ -35,28 +38,45 @@ class BaseSetBaseSet {
                 293641892973,
                 //already graded
                 164349921385,
-                164368549629
+                164368549629,
+                //base set 2
+                383764648334,
+                //damaged
+                164405902888
             )),
             Card(5, "Clefairy", CardType.NORMAL),
-            Card(6, "Gyarados", CardType.NORMAL),
+            Card(6, "Gyarados", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                184487354952,
+                333612561903
+            )),
             Card(7, "Hitmonchan", CardType.NORMAL),
-            Card(8, "Machamp", CardType.NORMAL),
+            Card(8, "Machamp", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                333612561903
+            )),
             Card(9, "Magneton", CardType.NORMAL),
             Card(10, "Mewtwo", CardType.NORMAL),
             Card(11, "Nidoking", CardType.NORMAL),
-            Card(12, "Ninetales", CardType.NORMAL),
-            Card(13, "Poliwrath", CardType.NORMAL),
-            Card(14, "Raichu", CardType.NORMAL),
-            Card(15, "Venusaur", CardType.NORMAL, ignoreTrades = listOf(
+            Card(12, "Ninetales", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
-                283967758263,
-                392983175832,
-                124380401348,
-                392915613748,
+                333612561903,
+                392927847093
+            )),
+            Card(13, "Poliwrath", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                392927847093
+            )),
+            Card(14, "Raichu", CardType.NORMAL),
+            Card(15, "Venusaur", CardType.NORMAL, ignoreTrades = bigThree + listOf(
                 //inauthentic
                 283942514978
             )),
-            Card(16, "Zapdos", CardType.NORMAL),
+            Card(16, "Zapdos", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                333612561903,
+                392927847093
+            )),
             Card(17, "Beedrill", CardType.NORMAL),
             Card(18, "Dragonair", CardType.NORMAL),
             Card(19, "Dugtrio", CardType.NORMAL),
@@ -149,3 +169,5 @@ class BaseSetBaseSet {
         fun main(args: Array<String>) = SeriesCollector().collect(collection)
     }
 }
+//https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=%28Clefable%2Celectrode%2Cflareon%2Cjolteon%2Ckangaskhan%2Cmr.+mime%2Cnidoqueen%2Cpidgeot%2Cpinsir%2Cscyther%2Csnorlax%29+jungle&_in_kw=1&_ex_kw=japanese+error+misprint&_sacat=0&LH_Sold=0&_mPrRngCbx=1&_udlo=&_udhi=50&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=1&_dmd=1&_ipg=50&LH_Complete=1&_fosrp=1
+//https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=%28Clefable%2Celectrode%2Cflareon%2Cjolteon%2Ckangaskhan%2Cmr.+mime%2Cnidoqueen%2Cpidgeot%2Cpinsir%2Cscyther%2Csnorlax%29+jungle&_in_kw=1&_ex_kw=japanese+error+misprint&_sacat=0                       &_udlo=&_udhi=&_ftrt=901&_ftrv=1&_sabdlo=&_sabdhi=&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=1&_dmd=1&_ipg=50

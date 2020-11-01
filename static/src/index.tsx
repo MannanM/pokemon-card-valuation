@@ -7,7 +7,7 @@ import {GoogleAnalytics} from './analytics/GoogleAnalytics';
 import './img/favicon.ico';
 import './data/sets.json'
 
-[   'SWSH1', 'SWSH2', 'SWSH3', 'SWSH35',
+[   'SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'SWSH4',
     'XY12',
     'SM115', 'SM12',
     'BS', 'BSS', 'JU', 'FO', 'TR'

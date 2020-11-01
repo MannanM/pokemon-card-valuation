@@ -8,7 +8,6 @@ import com.mannanlive.ebay.parser.EBayParser
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
 import java.io.File
-import java.math.BigDecimal
 
 class SeriesCollector {
     companion object {
@@ -19,6 +18,7 @@ class SeriesCollector {
     private val objectMapper = ObjectMapper().registerKotlinModule()
 
     fun collect(collection: SeriesCollection) {
+        println("Processing ${collection.setName}...")
         val file = File("./static/src/data/${collection.setName}.json")
         val results = mutableMapOf<String, PopulatedCard>()
 
@@ -50,17 +50,16 @@ class SeriesCollector {
                 results
             )
         )
-
-        var trades = 0
-        val lastTrades = mutableListOf<BigDecimal>()
-        results.values.forEach {
-            trades += it.data.size
-            lastTrades.add((it.data.lastOrNull()?.get(1) ?: BigDecimal.ZERO) as BigDecimal)
-        }
-        println("Trades: $trades")
-        val sumByDouble = lastTrades.sumByDouble { it.toDouble() }
-        println("Total Last: $sumByDouble")
-        println("Average Last: ${sumByDouble / lastTrades.filter { it == BigDecimal.ZERO }.size}")
+//        var trades = 0
+//        val lastTrades = mutableListOf<BigDecimal>()
+//        results.values.forEach {
+//            trades += it.data.size
+//            lastTrades.add((it.data.lastOrNull()?.get(1) ?: BigDecimal.ZERO) as BigDecimal)
+//        }
+//        println("Trades: $trades")
+//        val sumByDouble = lastTrades.sumByDouble { it.toDouble() }
+//        println("Total Last: $sumByDouble")
+//        println("Average Last: ${sumByDouble / lastTrades.filter { it == BigDecimal.ZERO }.size}")
     }
 
     private fun existing(file: File, paddedLeftId: String): List<Array<Any>> {

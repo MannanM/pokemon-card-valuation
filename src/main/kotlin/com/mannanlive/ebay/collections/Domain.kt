@@ -41,5 +41,6 @@ enum class CardType {
     EX,
     MEGA_EX,
     BREAK,
-    GX
+    GX,
+    AMAZING_RARE
 }

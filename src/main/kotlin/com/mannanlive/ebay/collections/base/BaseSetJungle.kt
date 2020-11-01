@@ -79,7 +79,7 @@ class BaseSetJungle {
                 Card(64, "Poke Ball", CardType.NORMAL)
             ),
             "jungle",
-            listOf("shadowless", "first", "edition", "psa", "bgs")
+            listOf("shadowless", "first", "psa", "bgs")
         )
 
         @JvmStatic

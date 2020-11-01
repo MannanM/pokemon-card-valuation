@@ -37,8 +37,6 @@ class SwordShieldChampionsPath {
         )
 
         @JvmStatic
-        fun main(args: Array<String>) {
-            SeriesCollector().collect(collection)
-        }
+        fun main(args: Array<String>) = SeriesCollector().collect(collection)
     }
 }
