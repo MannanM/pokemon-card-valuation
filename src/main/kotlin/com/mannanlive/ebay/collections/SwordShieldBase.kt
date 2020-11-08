@@ -34,7 +34,14 @@ class SwordShieldBase {
                 Card(193, "Stonjourner", CardType.FULL_ART),
                 Card(194, "Sableye", CardType.FULL_ART),
                 Card(195, "Zacian", CardType.FULL_ART),
-                Card(196, "Zamazenta", CardType.FULL_ART),
+                Card(196, "Zamazenta", CardType.FULL_ART,
+                    ignoreTrades = listOf(
+                        //PSA
+                        203068188503
+                    ),
+                    addedTrades = listOf(
+                        arrayOf("2020-10-29T10:01", 24.20, 224208917752)
+                    )),
                 Card(197, "Snorlax", CardType.FULL_ART),
                 Card(198, "Cramorant", CardType.FULL_ART),
                 Card(199, "Bede", CardType.FULL_ART),
@@ -50,7 +57,10 @@ class SwordShieldBase {
                 Card(209, "Professor's Research", CardType.HYPER_RARE),
                 Card(210, "Team Yell Grunt", CardType.HYPER_RARE),
                 Card(211, "Zacian V", CardType.SECRET_RARE),
-                Card(212, "Zamazenta V", CardType.SECRET_RARE),
+                Card(212, "Zamazenta V", CardType.SECRET_RARE, ignoreTrades = listOf(
+                    //wrongly identified
+                    224208917752
+                )),
                 Card(213, "Air Balloon", CardType.SECRET_RARE),
                 Card(214, "Metal Saucer", CardType.SECRET_RARE),
                 Card(215, "Ordinary Rod", CardType.SECRET_RARE),

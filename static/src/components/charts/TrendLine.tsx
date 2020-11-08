@@ -1,7 +1,7 @@
 import React from 'react';
 import {Baseline, LineChart} from 'react-timeseries-charts';
 // @ts-ignore because avg and sum aren't exported properly
-import {avg, IndexedEvent, sum, TimeSeries} from 'pondjs';
+import {avg, IndexedEvent, sum, TimeRange, TimeSeries} from 'pondjs';
 
 const defaultStyle = {
     label: {
@@ -22,7 +22,8 @@ const interval = 1;
 interface TrendlineProps {
     axis: string,
     column: string,
-    series: TimeSeries
+    series: TimeSeries,
+    range: TimeRange,
 }
 
 interface TrendLineState {
@@ -37,7 +38,7 @@ export default class TrendLine extends React.Component<TrendlineProps, TrendLine
     }
 
     componentDidUpdate(prevProps: Readonly<TrendlineProps>) {
-        if (prevProps?.series !== this.props.series) {
+        if (prevProps?.series !== this.props.series || prevProps?.range !== this.props.range) {
             this.setState(
                 this.calculateState()
             );
@@ -56,6 +57,7 @@ export default class TrendLine extends React.Component<TrendlineProps, TrendLine
         const points = this
             .props
             .series
+            .crop(this.props.range)
             .fixedWindowRollup({
                 windowSize: interval + 'd',
                 aggregation: aggregation,

@@ -39,6 +39,7 @@ class BaseSetBaseSet {
                 //already graded
                 164349921385,
                 164368549629,
+                284057612162,
                 //base set 2
                 383764648334,
                 //damaged
