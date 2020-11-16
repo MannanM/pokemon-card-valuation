@@ -138,7 +138,10 @@ class BaseSetBaseSet {
             Card(74, "Item Finder", CardType.NORMAL),
             Card(75, "Lass", CardType.NORMAL),
             Card(76, "Pokemon Breeder", CardType.NORMAL),
-            Card(77, "Pokemon Trader", CardType.NORMAL),
+            Card(77, "Pokemon Trader", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                254760740118
+            )),
             Card(78, "Scoop Up", CardType.NORMAL),
             Card(79, "Super Energy Removal", CardType.NORMAL),
             Card(80, "Defender", CardType.NORMAL),
@@ -154,7 +157,10 @@ class BaseSetBaseSet {
             Card(90, "Super Potion", CardType.NORMAL),
             Card(91, "Bill", CardType.NORMAL),
             Card(92, "Energy Removal", CardType.NORMAL),
-            Card(93, "Gust of Wind", CardType.NORMAL),
+            Card(93, "Gust of Wind", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                254760740118
+            )),
             Card(94, "Potion", CardType.NORMAL),
             Card(95, "Switch", CardType.NORMAL),
             Card(96, "Double Colorless Energy", CardType.NORMAL)
