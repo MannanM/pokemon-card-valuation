@@ -4,6 +4,8 @@ import {TimeRange, TimeSeries} from 'pondjs';
 import {ChartContainer, ChartRow, Charts, Resizable, ScatterChart, YAxis,} from 'react-timeseries-charts';
 import TrendLine from './TrendLine';
 import {GoogleAnalytics} from '../../analytics/GoogleAnalytics';
+import {faSync} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export interface EBayChartProps {
     series: TimeSeries
@@ -76,7 +78,10 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
                     {EBayChart.d(this.state.timeRange.begin())}
                     {' '}to{' '}
                     {EBayChart.d(this.state.timeRange.end())}
-                    {' '}(<a href={'#'} onClick={this.reset}>Reset</a>)
+                    {' '}
+                    <a href={'#reset'} onClick={this.reset}>
+                        <FontAwesomeIcon icon={faSync}/>
+                    </a>
                 </div>
                 <div>
                     <Resizable>
@@ -133,17 +138,15 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
     }
 
     private static d(date: Date) {
-        return moment(date).format('d/M/yy');
+        return moment(date).format('D/M/YY');
     }
 
     private static highlight(highlight: any) {
         if (highlight) {
-            const priceText = `${highlight.event.get(highlight.column).toFixed(2)}`;
-            const text = `Price $AUD ${priceText} sold at
-                ${EBayChart.d(highlight.event.timestamp())} 
-            `;
-            const infoValues = [{label: '$AUD', value: priceText}];
-            return {text, infoValues};
+            const priceText = highlight.event.get(highlight.column).toFixed(2);
+            return {
+                text: `Price $AUD ${priceText} sold at ${EBayChart.d(highlight.event.timestamp())}`,
+                infoValues: [{label: '$AUD', value: priceText}]};
         } else {
             return {text: '.', infoValues: []};
         }

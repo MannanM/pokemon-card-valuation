@@ -54,7 +54,7 @@ export default class TrendLine extends React.Component<TrendlineProps, TrendLine
             )
         );
 
-        const points = this
+        const newRollup = this
             .props
             .series
             .crop(this.props.range)
@@ -63,10 +63,16 @@ export default class TrendLine extends React.Component<TrendlineProps, TrendLine
                 aggregation: aggregation,
                 toEvents: true
             })
-            .toJSON()
-            .points;
-        const trend = this.calculateTrendFromFixedWindowRollupTimeSeries(points);
+            .toJSON();
 
+        if (!newRollup) {
+            return {
+                trendSeries: new TimeSeries({name: 'trendline', events: []}),
+                weeklyTrend: 0
+            };
+        }
+        const points = newRollup.points;
+        const trend = this.calculateTrendFromFixedWindowRollupTimeSeries(points);
         const firstDay = TrendLine.extractDate(points[0][0]) - 1;
         const lastDay = TrendLine.extractDate(points[points.length - 1][0]) + 1;
         return {

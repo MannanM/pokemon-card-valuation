@@ -13,6 +13,7 @@ class BaseSetBaseSet {
             124380401348,
             392915613748,
             392938545676,
+            233779816758,
             //inauthentic
             274480853756
         )
@@ -24,7 +25,10 @@ class BaseSetBaseSet {
                 224204274106,
                 184490368737,
                 //base set 2
-                124393194743
+                124393194743,
+                363166716347,
+                //multiple
+                353268439825
             )),
             Card(3, "Chansey", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
@@ -42,8 +46,11 @@ class BaseSetBaseSet {
                 284057612162,
                 //base set 2
                 383764648334,
+                363166716347,
                 //damaged
-                164405902888
+                164405902888,
+                //multiple
+                353268439825
             )),
             Card(5, "Clefairy", CardType.NORMAL),
             Card(6, "Gyarados", CardType.NORMAL, ignoreTrades = listOf(
@@ -56,9 +63,18 @@ class BaseSetBaseSet {
                 //multiple
                 333612561903
             )),
-            Card(9, "Magneton", CardType.NORMAL),
-            Card(10, "Mewtwo", CardType.NORMAL),
-            Card(11, "Nidoking", CardType.NORMAL),
+            Card(9, "Magneton", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                392919257498
+            )),
+            Card(10, "Mewtwo", CardType.NORMAL, ignoreTrades = listOf(
+                //first edition + german
+                184520269942
+            )),
+            Card(11, "Nidoking", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                392919257498
+            )),
             Card(12, "Ninetales", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 333612561903,
@@ -66,17 +82,21 @@ class BaseSetBaseSet {
             )),
             Card(13, "Poliwrath", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
-                392927847093
+                392927847093,
+                392919257498
             )),
             Card(14, "Raichu", CardType.NORMAL),
             Card(15, "Venusaur", CardType.NORMAL, ignoreTrades = bigThree + listOf(
                 //inauthentic
-                283942514978
+                283942514978,
+                //multiple
+                264836588577
             )),
             Card(16, "Zapdos", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 333612561903,
-                392927847093
+                392927847093,
+                392919257498
             )),
             Card(17, "Beedrill", CardType.NORMAL),
             Card(18, "Dragonair", CardType.NORMAL),
@@ -85,13 +105,20 @@ class BaseSetBaseSet {
             Card(21, "Electrode", CardType.NORMAL),
             Card(22, "Pidgeotto", CardType.NORMAL),
             Card(23, "Arcanine", CardType.NORMAL),
-            Card(24, "Charmeleon", CardType.NORMAL, ignoreTrades = listOf(264836611565)),
+            Card(24, "Charmeleon", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                264836611565,
+                324326110675
+            )),
             Card(25, "Dewgong", CardType.NORMAL),
             Card(26, "Dratini", CardType.NORMAL),
             Card(27, "Farfetch'd", CardType.NORMAL),
             Card(28, "Growlithe", CardType.NORMAL),
             Card(29, "Haunter", CardType.NORMAL),
-            Card(30, "Ivysaur", CardType.NORMAL),
+            Card(30, "Ivysaur", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                264836588577
+            )),
             Card(31, "Jynx", CardType.NORMAL),
             Card(32, "Kadabra", CardType.NORMAL),
             Card(33, "Kakuna", CardType.NORMAL),
@@ -105,7 +132,12 @@ class BaseSetBaseSet {
             Card(41, "Seel", CardType.NORMAL),
             Card(42, "Wartortle", CardType.NORMAL),
             Card(43, "Abra", CardType.NORMAL),
-            Card(44, "Bulbasaur", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207)),
+            Card(44, "Bulbasaur", CardType.NORMAL, ignoreTrades = listOf(
+                //multiple
+                264907412987,
+                264902285207,
+                264836588577
+            )),
             Card(45, "Caterpie", CardType.NORMAL),
             Card(46, "Charmander", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207, 264836611565)),
             Card(47, "Diglett", CardType.NORMAL),
@@ -169,12 +201,10 @@ class BaseSetBaseSet {
             "BS",
             BaseSetCards,
             "base",
-            listOf("shadowless", "first", "psa", "bgs")
+            listOf("shadowless", "first", "psa", "bgs", "1st")
         )
 
         @JvmStatic
         fun main(args: Array<String>) = SeriesCollector().collect(collection)
     }
 }
-//https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=%28Clefable%2Celectrode%2Cflareon%2Cjolteon%2Ckangaskhan%2Cmr.+mime%2Cnidoqueen%2Cpidgeot%2Cpinsir%2Cscyther%2Csnorlax%29+jungle&_in_kw=1&_ex_kw=japanese+error+misprint&_sacat=0&LH_Sold=0&_mPrRngCbx=1&_udlo=&_udhi=50&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=1&_dmd=1&_ipg=50&LH_Complete=1&_fosrp=1
-//https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=%28Clefable%2Celectrode%2Cflareon%2Cjolteon%2Ckangaskhan%2Cmr.+mime%2Cnidoqueen%2Cpidgeot%2Cpinsir%2Cscyther%2Csnorlax%29+jungle&_in_kw=1&_ex_kw=japanese+error+misprint&_sacat=0                       &_udlo=&_udhi=&_ftrt=901&_ftrv=1&_sabdlo=&_sabdhi=&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=1&_dmd=1&_ipg=50
