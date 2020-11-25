@@ -37,7 +37,7 @@ class SeriesCollector {
             val new = output.map { arrayOf(outFormatter.print(it.date), it.price, it.id) }
             val mergeExisting = (new + existing(file, paddedLeftId))
                 .filter { !card.ignoreTrades.contains(it[2]) }
-                .distinct()
+                .distinctBy { it[2] }
                 .sortedBy { it[0].toString() }
 
             results[paddedLeftId] = PopulatedCard(card.name, card.type, mergeExisting)

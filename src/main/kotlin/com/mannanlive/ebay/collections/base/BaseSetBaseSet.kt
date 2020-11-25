@@ -17,6 +17,15 @@ class BaseSetBaseSet {
             //inauthentic
             274480853756
         )
+        private val littleThree = listOf(
+            //multiple
+            284057334229,
+            264907412987,
+            264902285207,
+            284075412995,
+            284065109122,
+            174514224190
+        )
         val BaseSetCards = listOf(
             Card(1, "Alakazam", CardType.NORMAL),
             Card(2, "Blastoise", CardType.NORMAL, ignoreTrades = bigThree + listOf(
@@ -108,7 +117,8 @@ class BaseSetBaseSet {
             Card(24, "Charmeleon", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 264836611565,
-                324326110675
+                324326110675,
+                174503618729
             )),
             Card(25, "Dewgong", CardType.NORMAL),
             Card(26, "Dratini", CardType.NORMAL),
@@ -132,14 +142,15 @@ class BaseSetBaseSet {
             Card(41, "Seel", CardType.NORMAL),
             Card(42, "Wartortle", CardType.NORMAL),
             Card(43, "Abra", CardType.NORMAL),
-            Card(44, "Bulbasaur", CardType.NORMAL, ignoreTrades = listOf(
+            Card(44, "Bulbasaur", CardType.NORMAL, ignoreTrades = littleThree + listOf(
                 //multiple
-                264907412987,
-                264902285207,
                 264836588577
             )),
             Card(45, "Caterpie", CardType.NORMAL),
-            Card(46, "Charmander", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207, 264836611565)),
+            Card(46, "Charmander", CardType.NORMAL, ignoreTrades = littleThree + listOf(
+                264836611565,
+                174503618729
+            )),
             Card(47, "Diglett", CardType.NORMAL),
             Card(48, "Doduo", CardType.NORMAL),
             Card(49, "Drowzee", CardType.NORMAL),
@@ -156,7 +167,7 @@ class BaseSetBaseSet {
             Card(60, "Ponyta", CardType.NORMAL),
             Card(61, "Rattata", CardType.NORMAL),
             Card(62, "Sandshrew", CardType.NORMAL),
-            Card(63, "Squirtle", CardType.NORMAL, ignoreTrades = listOf(264907412987, 264902285207)),
+            Card(63, "Squirtle", CardType.NORMAL, ignoreTrades = littleThree + listOf()),
             Card(64, "Starmie", CardType.NORMAL),
             Card(65, "Staryu", CardType.NORMAL),
             Card(66, "Tangela", CardType.NORMAL),
@@ -201,7 +212,7 @@ class BaseSetBaseSet {
             "BS",
             BaseSetCards,
             "base",
-            listOf("shadowless", "first", "psa", "bgs", "1st")
+            listOf("shadowless", "first", "psa", "bgs", "1st", "german")
         )
 
         @JvmStatic
