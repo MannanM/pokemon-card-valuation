@@ -1,7 +1,7 @@
 export class Api {
     private baseUrl: string;
 
-    constructor(baseUrl: string = process.env.BASE_URL) {
+    constructor(baseUrl: string = process.env.BASE_URL || '') {
         this.baseUrl = baseUrl;
     }
 

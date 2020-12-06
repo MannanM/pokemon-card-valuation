@@ -3,8 +3,8 @@
   "homepage": "https://MannanM.github.io/pokemon-card-valuation",
   "scripts": {
     "start": "webpack-dev-server --mode development --inline --hot --open --env.BASE_URL=http://localhost:8080 --env.GA_TRACKING=UA-000000-01",
-    "build": "webpack  --mode development --env.BASE_URL=http://localhost:8080 --env.GA_TRACKING=UA-000000-01",
-    "predeploy": "webpack -p --env.BASE_URL=https://mannanm.github.io/pokemon-card-valuation --env.GA_TRACKING=UA-180959283-1",
+    "build": "webpack  --mode development --env.GA_TRACKING=UA-000000-01",
+    "predeploy": "webpack -p --env.GA_TRACKING=UA-180959283-1",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
