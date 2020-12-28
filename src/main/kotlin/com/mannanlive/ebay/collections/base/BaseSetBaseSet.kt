@@ -175,18 +175,27 @@ class BaseSetBaseSet {
             Card(68, "Vulpix", CardType.NORMAL),
             Card(69, "Weedle", CardType.NORMAL),
             Card(70, "Clefairy Doll", CardType.NORMAL),
-            Card(71, "Computer Search", CardType.NORMAL),
+            Card(71, "Computer Search", CardType.NORMAL, ignoreTrades = listOf(
+                // Multiple
+                274588538772
+            )),
             Card(72, "Devolution Spray", CardType.NORMAL),
             Card(73, "Imposter Professor Oak", CardType.NORMAL),
             Card(74, "Item Finder", CardType.NORMAL),
             Card(75, "Lass", CardType.NORMAL),
-            Card(76, "Pokemon Breeder", CardType.NORMAL),
+            Card(76, "Pokemon Breeder", CardType.NORMAL, ignoreTrades = listOf(
+                // Multiple
+                274588538772
+            )),
             Card(77, "Pokemon Trader", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 254760740118
             )),
             Card(78, "Scoop Up", CardType.NORMAL),
-            Card(79, "Super Energy Removal", CardType.NORMAL),
+            Card(79, "Super Energy Removal", CardType.NORMAL, ignoreTrades = listOf(
+                // Multiple
+                274588538772
+            )),
             Card(80, "Defender", CardType.NORMAL),
             Card(81, "Energy Retrieval", CardType.NORMAL),
             Card(82, "Full Heal", CardType.NORMAL),

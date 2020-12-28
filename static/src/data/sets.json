@@ -4,6 +4,10 @@
       "name": "Sword & Shield",
       "sets": [
         {
+          "name": "Battle Styles",
+          "value": "SWSH5"
+        },
+        {
           "name": "Vivid Voltage",
           "value": "SWSH4"
         },

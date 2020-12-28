@@ -1,4 +1,9 @@
-package com.mannanlive.ebay.collections
+package com.mannanlive.ebay.collections.swsh
+
+import com.mannanlive.ebay.collections.Card
+import com.mannanlive.ebay.collections.CardType
+import com.mannanlive.ebay.collections.SeriesCollection
+import com.mannanlive.ebay.collections.SeriesCollector
 
 class SwordShieldChampionsPath {
     companion object {
