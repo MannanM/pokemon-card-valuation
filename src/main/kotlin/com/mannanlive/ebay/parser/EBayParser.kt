@@ -60,7 +60,12 @@ class EBayParser {
     private fun getDate(row: Element): DateTime {
         val date = formatter.parseDateTime(row.select("li.timeleft").text())
         return if (date.year == 2000) {
-            date.plusYears(now.year - date.year)
+            val dateAsThisYear = date.plusYears(now.year - date.year)
+            if (dateAsThisYear.isAfterNow) {
+                dateAsThisYear.minusYears(1)
+            } else {
+                dateAsThisYear
+            }
         } else {
             date
         }
