@@ -98,7 +98,9 @@ class BaseSetBaseSet {
             Card(13, "Poliwrath", CardType.NORMAL, ignoreTrades = listOf(
                 //multiple
                 392927847093,
-                392919257498
+                392919257498,
+                //other language
+                274635778251
             )),
             Card(14, "Raichu", CardType.NORMAL),
             Card(15, "Venusaur", CardType.NORMAL, ignoreTrades = bigThree + listOf(
@@ -166,7 +168,11 @@ class BaseSetBaseSet {
             Card(53, "Magnemite", CardType.NORMAL),
             Card(54, "Metapod", CardType.NORMAL),
             Card(55, "Nidoran M", CardType.NORMAL),
-            Card(56, "Onix", CardType.NORMAL),
+            Card(56, "Onix", CardType.NORMAL, ignoreTrades = listOf(
+                //first edition
+                393005719963,
+                224196176028
+            )),
             Card(57, "Pidgey", CardType.NORMAL),
             Card(58, "Pikachu", CardType.NORMAL),
             Card(59, "Poliwag", CardType.NORMAL),

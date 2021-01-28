@@ -7,16 +7,21 @@ import com.mannanlive.ebay.collections.SeriesCollector
 
 class BaseSetJungle {
     companion object {
+        private val bigThree = listOf(
+            303800980257,
+            254809611563
+        )
         val collection = SeriesCollection(
             "JU",
             listOf(
                 Card(1, "Clefable", CardType.NORMAL),
                 Card(2, "Electrode", CardType.NORMAL),
-                Card(3, "Flareon", CardType.NORMAL, ignoreTrades = listOf(
+                Card(3, "Flareon", CardType.NORMAL, ignoreTrades = bigThree + listOf(
                     //misprints
-                    313237961566, 373249874286
+                    313237961566,
+                    373249874286
                 )),
-                Card(4, "Jolteon", CardType.NORMAL),
+                Card(4, "Jolteon", CardType.NORMAL, ignoreTrades = bigThree),
                 Card(5, "Kangaskhan", CardType.NORMAL),
                 Card(6, "Mr. Mime", CardType.NORMAL),
                 Card(7, "Nidoqueen", CardType.NORMAL),
@@ -24,7 +29,10 @@ class BaseSetJungle {
                 Card(9, "Pinsir", CardType.NORMAL),
                 Card(10, "Scyther", CardType.NORMAL),
                 Card(11, "Snorlax", CardType.NORMAL),
-                Card(12, "Vaporeon", CardType.NORMAL),
+                Card(12, "Vaporeon", CardType.NORMAL, ignoreTrades = bigThree + listOf(
+                    //first edition
+                    164471952108
+                )),
                 Card(13, "Venomoth", CardType.NORMAL),
                 Card(14, "Victreebel", CardType.NORMAL),
                 Card(15, "Vileplume", CardType.NORMAL),
