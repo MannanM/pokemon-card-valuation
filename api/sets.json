@@ -39,6 +39,10 @@
         {
           "name": "Hidden Fates",
           "value": "SM115"
+        },
+        {
+          "name": "Base Set",
+          "value": "SM1"
         }
       ]
     },
