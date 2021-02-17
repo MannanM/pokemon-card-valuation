@@ -5,6 +5,9 @@ import com.mannanlive.ebay.collections.base.BaseSetBaseSetShadowless
 import com.mannanlive.ebay.collections.base.BaseSetFossil
 import com.mannanlive.ebay.collections.base.BaseSetJungle
 import com.mannanlive.ebay.collections.base.BaseSetTeamRocket
+import com.mannanlive.ebay.collections.sm.SunMoonBase
+import com.mannanlive.ebay.collections.sm.SunMoonCosmicEclipse
+import com.mannanlive.ebay.collections.sm.SunMoonHiddenFates
 import com.mannanlive.ebay.collections.swsh.SwordShieldBase
 import com.mannanlive.ebay.collections.swsh.SwordShieldBattleStyles
 import com.mannanlive.ebay.collections.swsh.SwordShieldChampionsPath
@@ -23,6 +26,7 @@ class RefreshAll {
                 collect(BaseSetJungle.collection)
                 collect(BaseSetTeamRocket.collection)
                 collect(XyEvolutions.collection)
+                collect(SunMoonBase.collection)
                 collect(SunMoonCosmicEclipse.collection)
                 collect(SunMoonHiddenFates.collection)
                 collect(SwordShieldBase.collection)

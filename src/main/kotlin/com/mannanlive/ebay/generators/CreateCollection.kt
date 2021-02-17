@@ -65,18 +65,18 @@ class CreateCollection {
 
     private fun writeFooter(name: String) {
         builder.append("""
-                ),
-                "$name",
-                listOf("jumbo", "promo", "psa")
-            )
+            ),
+            "$name",
+            listOf("jumbo", "promo", "psa")
+        )
 
-            @JvmStatic
-            fun main(args: Array<String>) {
-                SeriesCollector().collect(collection)
-            }
+        @JvmStatic
+        fun main(args: Array<String>) {
+            SeriesCollector().collect(collection)
         }
     }
-    """)
+}
+""")
     }
 
     private fun getSetInfo(type: String): Triple<String, String, String> {
@@ -113,7 +113,7 @@ class CreateCollection {
 
     companion object {
         private const val API = "https://api.pokemontcg.io"
-        private const val API_KEY = "<secret>"
+        private const val API_KEY = "8b0b1e93-f297-4104-bf5e-42bf19ca69c0"
 
         @JvmStatic
         fun main(args: Array<String>) = CreateCollection().create("sm2")
