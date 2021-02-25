@@ -5,9 +5,21 @@ import com.mannanlive.ebay.collections.base.BaseSetBaseSetShadowless
 import com.mannanlive.ebay.collections.base.BaseSetFossil
 import com.mannanlive.ebay.collections.base.BaseSetJungle
 import com.mannanlive.ebay.collections.base.BaseSetTeamRocket
+import com.mannanlive.ebay.collections.sm.SunMoonGuardiansRisingBase
 import com.mannanlive.ebay.collections.sm.SunMoonBase
+import com.mannanlive.ebay.collections.sm.SunMoonBurningShadows
+import com.mannanlive.ebay.collections.sm.SunMoonCelestialStorm
 import com.mannanlive.ebay.collections.sm.SunMoonCosmicEclipse
+import com.mannanlive.ebay.collections.sm.SunMoonCrimsonInvasion
+import com.mannanlive.ebay.collections.sm.SunMoonDragonMajesty
+import com.mannanlive.ebay.collections.sm.SunMoonForbiddenLight
 import com.mannanlive.ebay.collections.sm.SunMoonHiddenFates
+import com.mannanlive.ebay.collections.sm.SunMoonLostThunder
+import com.mannanlive.ebay.collections.sm.SunMoonShiningLegends
+import com.mannanlive.ebay.collections.sm.SunMoonTeamUp
+import com.mannanlive.ebay.collections.sm.SunMoonUltraPrism
+import com.mannanlive.ebay.collections.sm.SunMoonUnbrokenBonds
+import com.mannanlive.ebay.collections.sm.SunMoonUnifiedMinds
 import com.mannanlive.ebay.collections.swsh.SwordShieldBase
 import com.mannanlive.ebay.collections.swsh.SwordShieldBattleStyles
 import com.mannanlive.ebay.collections.swsh.SwordShieldChampionsPath
@@ -27,6 +39,18 @@ class RefreshAll {
                 collect(BaseSetTeamRocket.collection)
                 collect(XyEvolutions.collection)
                 collect(SunMoonBase.collection)
+                collect(SunMoonGuardiansRisingBase.collection)
+                collect(SunMoonBurningShadows.collection)
+                collect(SunMoonShiningLegends.collection)
+                collect(SunMoonCrimsonInvasion.collection)
+                collect(SunMoonUltraPrism.collection)
+                collect(SunMoonForbiddenLight.collection)
+                collect(SunMoonCelestialStorm.collection)
+                collect(SunMoonDragonMajesty.collection)
+                collect(SunMoonLostThunder.collection)
+                collect(SunMoonTeamUp.collection)
+                collect(SunMoonUnbrokenBonds.collection)
+                collect(SunMoonUnifiedMinds.collection)
                 collect(SunMoonCosmicEclipse.collection)
                 collect(SunMoonHiddenFates.collection)
                 collect(SwordShieldBase.collection)

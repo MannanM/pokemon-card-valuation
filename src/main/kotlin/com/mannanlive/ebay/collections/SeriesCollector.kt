@@ -25,7 +25,7 @@ class SeriesCollector {
         val padRequired = calculatePadRequired(collection.set)
 
         for (card in collection.set) {
-            val paddedLeftId = card.prefix + card.id.toString().padStart(padRequired, '0')
+            val paddedLeftId = card.prefix + card.id.toString().padStart(padRequired, '0') + card.suffix
             val searchCardId = searchCardId(card, paddedLeftId)
             val history = eBayClient.getHistory(
                 "${collection.searchString}+${searchCardId}+${card.searchString}",

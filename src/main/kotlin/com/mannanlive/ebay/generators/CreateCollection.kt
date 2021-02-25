@@ -15,25 +15,29 @@ class CreateCollection {
     fun create(type: String) {
         val (outPackage, name, outClass) = getSetInfo(type)
 
+        println(" - generating header")
         writeHeader(outPackage, outClass, type)
+        println(" - generating cards")
         writeCards(type)
+        println(" - generating footer")
         writeFooter(name)
+        println(" - writing file")
         writeFile(outPackage, outClass)
     }
 
     private fun writeHeader(outPackage: String, outClass: String, type: String) {
         builder.append("""package com.mannanlive.ebay.collections.$outPackage
     
-    import com.mannanlive.ebay.collections.Card
-    import com.mannanlive.ebay.collections.CardType
-    import com.mannanlive.ebay.collections.SeriesCollection
-    import com.mannanlive.ebay.collections.SeriesCollector
-    
-    class $outClass {
-        companion object {
-            val collection = SeriesCollection(
-                "${type.toUpperCase()}",
-                listOf(
+import com.mannanlive.ebay.collections.Card
+import com.mannanlive.ebay.collections.CardType
+import com.mannanlive.ebay.collections.SeriesCollection
+import com.mannanlive.ebay.collections.SeriesCollector
+
+class $outClass {
+    companion object {
+        val collection = SeriesCollection(
+            "${type.toUpperCase()}",
+            listOf(
 """)
     }
 
@@ -47,11 +51,21 @@ class CreateCollection {
                     .replace("Holo ", "")
                     .replace(" ", "_")
                     .toUpperCase()
+                val cardNumber = card.get("number").textValue()
+                val cardPrefixOrSuffix = getCardPrefixOrSuffix(cardNumber)
+
                 builder.append("                Card(")
-                    .append(card.get("number").textValue())
+                    .append(cardNumber.filter { it.isDigit() })
                     .append(", ")
                     .append(card.get("name"))
-                    .append(", CardType.$rarity)")
+                    .append(", CardType.$rarity")
+                if (cardPrefixOrSuffix.first.isNotEmpty()) {
+                    builder.append(""", prefix="${cardPrefixOrSuffix.first}"""")
+                }
+                if (cardPrefixOrSuffix.second.isNotEmpty()) {
+                    builder.append(""", suffix="${cardPrefixOrSuffix.second}"""")
+                }
+                builder.append(")")
                     .append(
                         if (i == interestingCards.size - 1) {
                             ""
@@ -63,11 +77,23 @@ class CreateCollection {
             }
     }
 
+    private fun getCardPrefixOrSuffix(cardNumber: String): Pair<String, String> {
+        val extraChars = cardNumber.filter { it.isLetter() }
+        return if (extraChars.isNotEmpty()) {
+            if (cardNumber.startsWith(extraChars)) {
+                extraChars to ""
+            } else {
+                "" to extraChars
+            }
+        } else {
+            "" to ""
+        }
+    }
+
     private fun writeFooter(name: String) {
-        builder.append("""
-            ),
-            "$name",
-            listOf("jumbo", "promo", "psa")
+        builder.append("""            ),
+            "${name.replace(" ", "%20")}",
+            listOf("jumbo", "promo", "psa", "japanese")
         )
 
         @JvmStatic
@@ -80,16 +106,19 @@ class CreateCollection {
     }
 
     private fun getSetInfo(type: String): Triple<String, String, String> {
+        println(" - getting set info")
         val seriesInfo: JsonNode = callApi("$API/v2/sets/$type").get("data")
         val outPackage = type.filter { !it.isDigit() }
         val name = seriesInfo.get("name").textValue()
-        val series = seriesInfo.get("name").textValue()
+        val series = seriesInfo.get("series").textValue()
         val modifiedName = if (name == series) {
             "Base"
         } else {
             name
         }
         val outClass = (series + modifiedName).filter { it.isLetter() }
+        println(" - getting image")
+        ImageExtractor.extract(type, seriesInfo.get("images").get("symbol").textValue())
         return Triple(outPackage, name, outClass)
     }
 
@@ -99,11 +128,9 @@ class CreateCollection {
         return cardList.filter { card -> !ignoreRarities.contains(card.get("rarity").textValue()) }
     }
 
-    private fun callApi(url: String): JsonNode = objectMapper.readTree(
-        client.execute(HttpGet(url).also {
-            it.addHeader("X-Api-Key", API_KEY)
-        }).entity.content
-    )
+    private fun callApi(url: String): JsonNode =
+        client.execute(HttpGet(url).also { it.addHeader("X-Api-Key", API_KEY) })
+            .entity.content.use { content -> objectMapper.readTree(content) }
 
     private fun writeFile(outPackage: String, outClass: String) {
         val path = File("src/main/kotlin/com/mannanlive/ebay/collections/$outPackage")
@@ -116,6 +143,11 @@ class CreateCollection {
         private const val API_KEY = "8b0b1e93-f297-4104-bf5e-42bf19ca69c0"
 
         @JvmStatic
-        fun main(args: Array<String>) = CreateCollection().create("sm2")
+        fun main(args: Array<String>) = listOf(
+            "sm115"
+        ).forEach {
+            println("Processing $it...")
+            CreateCollection().create(it)
+        }
     }
 }

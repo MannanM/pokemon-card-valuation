@@ -16,7 +16,8 @@ data class Card(
     val alternateSearchString: String = name,
     val ignoreTrades: List<Long> = listOf(),
     val addedTrades: List<Array<Any>> = listOf(),
-    val prefix: String = ""
+    val prefix: String = "",
+    val suffix: String = ""
 ) {
     val manualListings: List<EBayParser.Listing>
         get() = addedTrades.map {
@@ -45,5 +46,7 @@ enum class CardType {
     AMAZING_RARE,
     ULTRA,
     RAINBOW,
-    SECRET
+    SECRET,
+    SHINING,
+    PRISM_STAR
 }

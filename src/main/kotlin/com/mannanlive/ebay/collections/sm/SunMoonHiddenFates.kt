@@ -1,5 +1,5 @@
 package com.mannanlive.ebay.collections.sm
-
+    
 import com.mannanlive.ebay.collections.Card
 import com.mannanlive.ebay.collections.CardType
 import com.mannanlive.ebay.collections.SeriesCollection
@@ -121,11 +121,13 @@ class SunMoonHiddenFates {
                 Card(93, "Tapu Koko GX", CardType.SHINY, prefix = "SV"),
                 Card(94, "Tapu Lele GX", CardType.SHINY, prefix = "SV")
             ),
-            "fates",
-            listOf("digital", "jumbo", "promo", "psa", "bgs")
+            "Hidden%20Fates",
+            listOf("jumbo", "promo", "psa", "japanese")
         )
 
         @JvmStatic
-        fun main(args: Array<String>) = SeriesCollector().collect(collection)
+        fun main(args: Array<String>) {
+            SeriesCollector().collect(collection)
+        }
     }
 }
