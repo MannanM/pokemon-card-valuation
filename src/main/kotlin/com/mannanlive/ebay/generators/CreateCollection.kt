@@ -55,15 +55,15 @@ class $outClass {
                 val cardPrefixOrSuffix = getCardPrefixOrSuffix(cardNumber)
 
                 builder.append("                Card(")
-                    .append(cardNumber.filter { it.isDigit() })
+                    .append(cardNumber.filter { it.isDigit() }.trimStart('0'))
                     .append(", ")
-                    .append(card.get("name"))
+                    .append(card.get("name").toString().replace("-GX", " GX"))
                     .append(", CardType.$rarity")
                 if (cardPrefixOrSuffix.first.isNotEmpty()) {
-                    builder.append(""", prefix="${cardPrefixOrSuffix.first}"""")
+                    builder.append(""", prefix = "${cardPrefixOrSuffix.first}"""")
                 }
                 if (cardPrefixOrSuffix.second.isNotEmpty()) {
-                    builder.append(""", suffix="${cardPrefixOrSuffix.second}"""")
+                    builder.append(""", suffix = "${cardPrefixOrSuffix.second}"""")
                 }
                 builder.append(")")
                     .append(
@@ -138,16 +138,22 @@ class $outClass {
         File(path, "$outClass.kt").writeText(builder.toString())
     }
 
+    fun listSets() =
+        (callApi("$API/v2/sets?orderBy=-releaseDate").get("data") as ArrayNode).forEach {
+            println("${it.get("releaseDate").textValue()}: ${it.get("name")} [${it.get("id")}] - Cards #${it.get("total").intValue()}")
+        }
+
     companion object {
         private const val API = "https://api.pokemontcg.io"
         private const val API_KEY = "8b0b1e93-f297-4104-bf5e-42bf19ca69c0"
 
         @JvmStatic
+//        fun main(args: Array<String>) = CreateCollection().listSets()
         fun main(args: Array<String>) = listOf(
-            "sm115"
+            "swsh45", "swsh45sv"
         ).forEach {
             println("Processing $it...")
-            CreateCollection().create(it)
+            CreateCollection().create(it.toLowerCase())
         }
     }
 }

@@ -21,7 +21,13 @@ class SwordShieldVividVoltage {
                 Card(36, "Galarian Darmanitan V", CardType.V),
                 Card(37, "Galarian Darmanitan VMAX", CardType.VMAX),
                 Card(43, "Pikachu V", CardType.V),
-                Card(44, "Pikachu VMAX", CardType.VMAX),
+                Card(44, "Pikachu VMAX", CardType.VMAX, ignoreTrades = listOf(
+                    // multiple items
+                    274620768135,
+                    393045298350,
+                    393052130239,
+                    264978173136
+                )),
                 Card(49, "Ampharos V", CardType.V),
                 Card(50, "Raikou", CardType.AMAZING_RARE),
                 Card(82, "Zacian", CardType.AMAZING_RARE),

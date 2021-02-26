@@ -25,6 +25,7 @@ import com.mannanlive.ebay.collections.swsh.SwordShieldBattleStyles
 import com.mannanlive.ebay.collections.swsh.SwordShieldChampionsPath
 import com.mannanlive.ebay.collections.swsh.SwordShieldDarknessAblaze
 import com.mannanlive.ebay.collections.swsh.SwordShieldRebelClash
+import com.mannanlive.ebay.collections.swsh.SwordShieldShiningFates
 import com.mannanlive.ebay.collections.swsh.SwordShieldVividVoltage
 
 class RefreshAll {
@@ -59,6 +60,7 @@ class RefreshAll {
                 collect(SwordShieldRebelClash.collection)
                 collect(SwordShieldChampionsPath.collection)
                 collect(SwordShieldVividVoltage.collection)
+                collect(SwordShieldShiningFates.collection)
                 collect(SwordShieldBattleStyles.collection)
             }
         }

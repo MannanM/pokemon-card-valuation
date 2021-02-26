@@ -62,7 +62,7 @@ class SeriesCollector {
 //        println("Average Last: ${sumByDouble / lastTrades.filter { it == BigDecimal.ZERO }.size}")
     }
 
-    private fun existing(file: File, paddedLeftId: String): List<Array<Any>> {
+    private fun existing(file: File, paddedLeftId: String): List<Array<out Any>> {
         return if (file.exists()) {
             val original: Map<String, PopulatedCard> = objectMapper.readValue(file)
             original[paddedLeftId]?.data ?: listOf()

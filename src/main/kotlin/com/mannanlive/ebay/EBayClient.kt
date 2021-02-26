@@ -1,14 +1,15 @@
 package com.mannanlive.ebay
 
-import com.amazonaws.util.IOUtils
 import org.apache.http.HttpHeaders
 import org.apache.http.StatusLine
 import org.apache.http.client.CookieStore
+import org.apache.http.client.methods.CloseableHttpResponse
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpUriRequest
 import org.apache.http.impl.client.BasicCookieStore
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.util.EntityUtils
+import java.io.BufferedReader
 
 private const val ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
 private const val USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
@@ -37,8 +38,13 @@ class EBayClient {
     private fun extractResponse(request: HttpUriRequest): Pair<StatusLine, String> {
         val response = client.execute(request)
         val statusLine = response.statusLine
-        val result = IOUtils.toString(response.entity.content)
+        val result = readStream(response)
         EntityUtils.consume(response.entity)
         return statusLine to result
     }
+
+    private fun readStream(response: CloseableHttpResponse): String =
+        BufferedReader(response.entity.content.reader()).use { reader ->
+            reader.readText()
+        }
 }

@@ -6,7 +6,7 @@ import com.mannanlive.ebay.parser.EBayParser
 data class PopulatedCard(
     val name: String,
     val type: CardType,
-    val data: List<Array<Any>>
+    val data: List<Array<out Any>>
 )
 
 data class Card(
@@ -48,5 +48,6 @@ enum class CardType {
     RAINBOW,
     SECRET,
     SHINING,
-    PRISM_STAR
+    PRISM_STAR,
+    SHINY_GX
 }
