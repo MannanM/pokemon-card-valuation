@@ -64,7 +64,16 @@ class SwordShieldVividVoltage {
                 Card(185, "Pokémon Center Lady", CardType.FULL_ART),
                 Card(186, "Orbeetle VMAX", CardType.HYPER_RARE),
                 Card(187, "Galarian Darmanitan VMAX", CardType.HYPER_RARE),
-                Card(188, "Pikachu VMAX", CardType.HYPER_RARE),
+                Card(188, "Pikachu VMAX", CardType.HYPER_RARE, ignoreTrades = listOf(
+                    //wrong
+                    203230387683,
+                    203229879598,
+                    174529118680,
+                    174527811710,
+                    274592993405,
+                    //graded
+                    143901962276
+                )),
                 Card(189, "Coalossal VMAX", CardType.HYPER_RARE),
                 Card(190, "Aegislash VMAX", CardType.HYPER_RARE),
                 Card(191, "Togekiss VMAX", CardType.HYPER_RARE),
