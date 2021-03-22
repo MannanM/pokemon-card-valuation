@@ -85,7 +85,10 @@ class SwordShieldVividVoltage {
                 Card(197, "Opal", CardType.HYPER_RARE),
                 Card(198, "Galarian Obstagoon", CardType.SECRET_RARE),
                 Card(199, "Oranguru", CardType.SECRET_RARE),
-                Card(200, "Cape of Toughness", CardType.SECRET_RARE),
+                Card(200, "Cape of Toughness", CardType.SECRET_RARE, ignoreTrades = listOf(
+                    // multiple
+                    133617274123
+                )),
                 Card(201, "Hero's Medal", CardType.SECRET_RARE),
                 Card(202, "Memory Capsule", CardType.SECRET_RARE),
                 Card(203, "Telescopic Sight", CardType.SECRET_RARE)
