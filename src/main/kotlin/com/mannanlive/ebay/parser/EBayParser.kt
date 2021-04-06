@@ -4,6 +4,7 @@ import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
+import java.lang.IllegalStateException
 import java.math.BigDecimal
 
 class EBayParser {
@@ -11,6 +12,9 @@ class EBayParser {
     private val formatter = DateTimeFormat.forPattern("dd-MMM HH:mm")
 
     fun process(input: String): List<Listing> {
+        if (input.contains("Please verify yourself")) {
+            throw IllegalStateException("eBay has blocked due for captcha")
+        }
         return Jsoup.parse(input).select("li.sresult").mapNotNull { row ->
             val cancelledOffer = row.select("li.lvprice span.sboffer")
             val overseasText = row.select("li").text()
