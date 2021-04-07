@@ -23,7 +23,7 @@ class SunMoonShiningLegends {
                 Card(57, "Shining Arceus", CardType.SHINING),
                 Card(71, "Entei-GX", CardType.ULTRA),
                 Card(72, "Mewtwo-GX", CardType.ULTRA),
-                Card(73, "Pokémon Breeder", CardType.ULTRA),
+                Card(73, "Pokémon Breeder", CardType.ULTRA, "(Pokémon,Pokemon) Breeder"),
                 Card(74, "Entei-GX", CardType.RAINBOW),
                 Card(75, "Raichu-GX", CardType.RAINBOW),
                 Card(76, "Mewtwo-GX", CardType.RAINBOW),

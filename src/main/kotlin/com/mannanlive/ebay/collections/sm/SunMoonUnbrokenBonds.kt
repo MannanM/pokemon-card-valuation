@@ -66,7 +66,7 @@ class SunMoonUnbrokenBonds {
                 Card(230, "Electromagnetic Radar", CardType.SECRET),
                 Card(231, "Fire Crystal", CardType.SECRET),
                 Card(232, "Metal Core Barrier", CardType.SECRET),
-                Card(233, "Pokégear 3.0", CardType.SECRET),
+                Card(233, "Pokégear 3.0", CardType.SECRET, "(Pokégear,Pokégear) 3.0"),
                 Card(234, "Triple Acceleration Energy", CardType.SECRET)
             ),
             "Unbroken%20Bonds",

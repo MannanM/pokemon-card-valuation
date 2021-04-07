@@ -83,7 +83,7 @@ class SunMoonCosmicEclipse {
                 Card(264, "Great Catcher", CardType.SECRET_RARE),
                 Card(265, "Island Challenge Amulet", CardType.SECRET_RARE),
                 Card(266, "Lana's Fishing Rod", CardType.SECRET_RARE),
-                Card(267, "Lillie's Poké Doll", CardType.SECRET_RARE),
+                Card(267, "Lillie's Poké Doll", CardType.SECRET_RARE, "Lillie's (Poké,Poke) Doll"),
                 Card(268, "Martial Arts Dojo", CardType.SECRET_RARE),
                 Card(269, "Power Plant", CardType.SECRET_RARE),
                 Card(270, "Tag Call", CardType.SECRET_RARE),

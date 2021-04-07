@@ -2,6 +2,7 @@ import React, {Component, ReactNode} from "react";
 import {CardSelector} from "./CardSelector";
 import {Banner} from "./header/Banner";
 import {About} from "./display/About";
+import {SetDisplay} from "./display/SetDisplay";
 import {CardDisplay} from "./display/CardDisplay";
 import {Api, CardData, Expansion} from "../data/Api";
 import {GoogleAnalytics} from "../analytics/GoogleAnalytics";
@@ -34,8 +35,13 @@ export class Page extends Component<{}, PageState> {
 
     handleChange = selectedOption => {
         this.setState(
-            {selectedOption},
-            () => console.log(`Card selected:`, this.state.selectedOption)
+            {
+                defaultCard: selectedOption == null ? '' : selectedOption.value,
+                selectedOption: selectedOption
+            },
+            () => {
+                console.log(`Card selected:`, this.state.selectedOption);
+            }
         );
         Page.setHash(this.state.selectedSet, selectedOption);
     };
@@ -50,7 +56,11 @@ export class Page extends Component<{}, PageState> {
             },
             () => {
                 Page.setHash(selectedSet, null);
-                this.setState({selectedSet});
+                this.setState({
+                    defaultSet: selectedSet == null ? '' : selectedSet.value,
+                    defaultCard: '',
+                    selectedSet: selectedSet
+                });
                 if (selectedSet) {
                     this.api.fetchCards(selectedSet.value)
                         .then(data => this.setState({cards: data}));
@@ -117,7 +127,11 @@ export class Page extends Component<{}, PageState> {
                         />
                     }
                     {
-                        !this.state.selectedOption && <About/>
+                        !this.state.selectedOption && this.state.selectedSet && <SetDisplay
+                            set={this.state.selectedSet} cards={this.state.cards} onChange={this.handleChange}/>
+                    }
+                    {
+                        !this.state.selectedOption && !this.state.selectedSet && <About/>
                     }
                     {
                         this.state.selectedOption &&

@@ -28,7 +28,12 @@ data class Card(
         }
 
     val searchString: String
-        get() = name.replace(" ", "+").replace("&", "")
+        get() = alternateSearchString
+            .replace(" ", "+")
+            .replace("&", "")
+            .replace("(", "%28")
+            .replace(")", "%29")
+            .replace(",", "%2C")
 }
 
 enum class CardType {

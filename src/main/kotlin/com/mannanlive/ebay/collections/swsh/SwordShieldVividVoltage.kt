@@ -11,7 +11,10 @@ class SwordShieldVividVoltage {
             "SWSH4",
             listOf(
                 Card(9, "Celebi", CardType.AMAZING_RARE),
-                Card(20, "Orbeetle V", CardType.V),
+                Card(20, "Orbeetle V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    393180774797
+                )),
                 Card(21, "Orbeetle VMAX", CardType.VMAX),
                 Card(22, "Zarude V", CardType.V),
                 Card(23, "Charmander", CardType.NORMAL),
@@ -29,8 +32,14 @@ class SwordShieldVividVoltage {
                     264978173136
                 )),
                 Card(49, "Ampharos V", CardType.V),
-                Card(50, "Raikou", CardType.AMAZING_RARE),
-                Card(82, "Zacian", CardType.AMAZING_RARE),
+                Card(50, "Raikou", CardType.AMAZING_RARE, ignoreTrades = listOf(
+                    // multiple items
+                    124538160651
+                )),
+                Card(82, "Zacian", CardType.AMAZING_RARE, ignoreTrades = listOf(
+                    // multiple items
+                    124538160651
+                )),
                 Card(98, "Coalossal V", CardType.V),
                 Card(99, "Coalossal VMAX", CardType.VMAX),
                 Card(102, "Zamazenta", CardType.AMAZING_RARE),
@@ -39,7 +48,10 @@ class SwordShieldVividVoltage {
                 Card(119, "Jirachi", CardType.AMAZING_RARE),
                 Card(126, "Aegislash V", CardType.V),
                 Card(127, "Aegislash VMAX", CardType.VMAX),
-                Card(138, "Rayquaza", CardType.AMAZING_RARE),
+                Card(138, "Rayquaza", CardType.AMAZING_RARE, ignoreTrades = listOf(
+                    // multiple items
+                    124538160651
+                )),
                 Card(140, "Togekiss V", CardType.V),
                 Card(141, "Togekiss VMAX", CardType.VMAX),
                 Card(166, "Orbeetle V", CardType.FULL_ART),
@@ -61,7 +73,10 @@ class SwordShieldVividVoltage {
                 Card(182, "Leon", CardType.FULL_ART),
                 Card(183, "Nessa", CardType.FULL_ART),
                 Card(184, "Opal", CardType.FULL_ART),
-                Card(185, "Pokémon Center Lady", CardType.FULL_ART),
+                Card(185, "Pokémon Center Lady", CardType.FULL_ART, "(Pokémon,Pokemon) Center Lady", listOf(
+                    // graded
+                    203314424691
+                )),
                 Card(186, "Orbeetle VMAX", CardType.HYPER_RARE),
                 Card(187, "Galarian Darmanitan VMAX", CardType.HYPER_RARE),
                 Card(188, "Pikachu VMAX", CardType.HYPER_RARE, ignoreTrades = listOf(
@@ -72,7 +87,8 @@ class SwordShieldVividVoltage {
                     174527811710,
                     274592993405,
                     //graded
-                    143901962276
+                    143901962276,
+                    133681122022
                 )),
                 Card(189, "Coalossal VMAX", CardType.HYPER_RARE),
                 Card(190, "Aegislash VMAX", CardType.HYPER_RARE),

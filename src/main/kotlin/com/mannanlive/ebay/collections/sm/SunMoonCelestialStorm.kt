@@ -54,7 +54,7 @@ class SunMoonCelestialStorm {
                 Card(178, "Acro Bike", CardType.SECRET),
                 Card(179, "Hustle Belt", CardType.SECRET),
                 Card(180, "Life Herb", CardType.SECRET),
-                Card(181, "PokéNav", CardType.SECRET),
+                Card(181, "PokéNav", CardType.SECRET, "(PokéNav,PokeNav)"),
                 Card(182, "Rainbow Brush", CardType.SECRET),
                 Card(183, "Rainbow Energy", CardType.SECRET)
             ),

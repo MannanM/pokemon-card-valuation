@@ -40,7 +40,7 @@ class SunMoonUltraPrism {
                 Card(153, "Lusamine", CardType.ULTRA),
                 Card(153, "Lusamine", CardType.ULTRA, suffix="a"),
                 Card(154, "Mars", CardType.ULTRA),
-                Card(155, "Pokémon Fan Club", CardType.ULTRA),
+                Card(155, "Pokémon Fan Club", CardType.ULTRA, "(Pokémon,Pokemon) Fan Club"),
                 Card(156, "Volkner", CardType.ULTRA),
                 Card(157, "Leafeon-GX", CardType.RAINBOW),
                 Card(158, "Pheromosa-GX", CardType.RAINBOW),

@@ -62,7 +62,7 @@ class SunMoonTeamUp {
                 Card(193, "Electrocharger", CardType.SECRET),
                 Card(194, "Judge Whistle", CardType.SECRET),
                 Card(195, "Metal Goggles", CardType.SECRET),
-                Card(196, "Pokémon Communication", CardType.SECRET)
+                Card(196, "Pokémon Communication", CardType.SECRET, "(Pokémon,Pokemon) Communication")
             ),
             "Team%20Up",
             listOf("jumbo", "promo", "psa", "japanese")

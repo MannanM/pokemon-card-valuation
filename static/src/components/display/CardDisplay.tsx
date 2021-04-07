@@ -1,9 +1,9 @@
 import React, {Component, ReactNode} from 'react';
-import {TimeRangeEvent, TimeSeries} from 'pondjs';
 import {CardImage} from './CardImage';
 import {EBayChart} from '../charts/EBayChart';
 import {CardStats} from './CardStats';
 import {CardData} from '../../data/Api';
+import {Utils} from '../../util/Utils';
 
 interface CardDisplayProps {
     cardSet: string,
@@ -17,8 +17,8 @@ export class CardDisplay extends Component<CardDisplayProps> {
     }
 
     render(): ReactNode {
-        const series = this.getTimeSeries(this.props.card.data);
-        const minMax = this.getMinMax(series);
+        const series = Utils.getTimeSeries(this.props.card.data);
+        const minMax = Utils.getMinMax(series);
 
         return <React.Fragment>
             <div style={{width: '600px', height: '342px', margin: '20px auto'}}>
@@ -37,35 +37,5 @@ export class CardDisplay extends Component<CardDisplayProps> {
             </div>
             <EBayChart series={series}/>
         </React.Fragment>;
-    }
-
-    private getTimeSeries(data: any): TimeSeries {
-        const points = data.length ? data.map(([date, value, id]) => [
-            new Date(date),
-            value,
-            id
-        ]) : [[new Date(), 0, 0]];
-        return new TimeSeries({
-            name: 'ebay-sold-price',
-            columns: ['time', 'price', 'ebayid'],
-            points: points
-        });
-    }
-
-    private getMinMax(series: TimeSeries): { min: TimeRangeEvent, max: TimeRangeEvent } {
-        let min = null;
-        let max = null;
-        series.map(e => {
-            if (min === null) {
-                min = e;
-                max = e;
-            } else if (e.get('price') > max.get('price')) {
-                max = e;
-            } else if (e.get('price') < min.get('price')) {
-                min = e;
-            }
-            return e;
-        });
-        return {min: min, max: max}
     }
 }

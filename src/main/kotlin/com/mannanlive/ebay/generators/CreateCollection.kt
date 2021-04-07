@@ -59,6 +59,9 @@ class $outClass {
                     .append(", ")
                     .append(card.get("name").toString().replace("-GX", " GX"))
                     .append(", CardType.$rarity")
+                if (card.get("name").textValue().contains("é")) {
+                    builder.append(""", "${nameVariants(card.get("name").textValue())}"""")
+                }
                 if (cardPrefixOrSuffix.first.isNotEmpty()) {
                     builder.append(""", prefix = "${cardPrefixOrSuffix.first}"""")
                 }
@@ -150,10 +153,19 @@ class $outClass {
         @JvmStatic
 //        fun main(args: Array<String>) = CreateCollection().listSets()
         fun main(args: Array<String>) = listOf(
-            "swsh45", "swsh45sv"
+            "ecard3"
         ).forEach {
             println("Processing $it...")
             CreateCollection().create(it.toLowerCase())
         }
+
+        fun nameVariants(input: String): String =
+            input.split(" ").joinToString(" ") {
+                if (it.contains("é")) {
+                    "($it,${it.replace("é", "e")})"
+                } else {
+                    it
+                }
+            }
     }
 }

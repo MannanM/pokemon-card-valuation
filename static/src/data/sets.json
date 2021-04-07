@@ -108,6 +108,15 @@
       ]
     },
     {
+      "name": "eCard Series",
+      "sets": [
+        {
+          "name": "Skyridge",
+          "value": "ECARD3"
+        }
+      ]
+    },
+    {
       "name": "Base Set",
       "sets": [
         {

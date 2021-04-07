@@ -33,7 +33,7 @@ class SwordShieldShiningFates {
                 Card(67, "Cara Liss", CardType.ULTRA),
                 Card(68, "Gym Trainer", CardType.ULTRA),
                 Card(69, "Piers", CardType.ULTRA),
-                Card(70, "Poké Kid", CardType.ULTRA),
+                Card(70, "Poké Kid", CardType.ULTRA, "(Poké,Poke) Kid"),
                 Card(71, "Rose", CardType.ULTRA),
                 Card(72, "Skyla", CardType.ULTRA),
                 Card(73, "Alcremie VMAX", CardType.RAINBOW),

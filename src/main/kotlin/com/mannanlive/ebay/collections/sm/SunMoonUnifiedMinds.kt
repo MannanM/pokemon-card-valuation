@@ -49,7 +49,7 @@ class SunMoonUnifiedMinds {
                 Card(233, "Coach Trainer", CardType.ULTRA),
                 Card(234, "Grimsley", CardType.ULTRA),
                 Card(235, "Misty's Favor", CardType.ULTRA),
-                Card(236, "Poké Maniac", CardType.ULTRA),
+                Card(236, "Poké Maniac", CardType.ULTRA, "(Poké,Poke) Maniac"),
                 Card(237, "Rowlet & Alolan Exeggutor-GX", CardType.RAINBOW),
                 Card(238, "Heatran-GX", CardType.RAINBOW),
                 Card(239, "Slowpoke & Psyduck-GX", CardType.RAINBOW),

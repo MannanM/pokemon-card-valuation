@@ -13,18 +13,36 @@ class SwordShieldBattleStyles {
                 Card(6, "Kricketune V", CardType.V),
                 Card(18, "Flapple V", CardType.V),
                 Card(19, "Flapple VMAX", CardType.VMAX),
-                Card(21, "Victini V", CardType.V),
+                Card(21, "Victini V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    284236171749
+                )),
                 Card(22, "Victini VMAX", CardType.VMAX),
-                Card(40, "Empoleon V", CardType.V),
-                Card(50, "Tapu Koko V", CardType.V),
+                Card(40, "Empoleon V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    303925796280
+                )),
+                Card(50, "Tapu Koko V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    154386897766
+                )),
                 Card(51, "Tapu Koko VMAX", CardType.VMAX),
-                Card(62, "Mimikyu V", CardType.V),
+                Card(62, "Mimikyu V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    133699924586
+                )),
                 Card(63, "Necrozma V", CardType.V),
-                Card(85, "Single Strike Urshifu V", CardType.V),
+                Card(85, "Single Strike Urshifu V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    154386906973
+                )),
                 Card(86, "Single Strike Urshifu VMAX", CardType.VMAX),
                 Card(87, "Rapid Strike Urshifu V", CardType.V),
                 Card(88, "Rapid Strike Urshifu VMAX", CardType.VMAX),
-                Card(97, "Tyranitar V", CardType.V),
+                Card(97, "Tyranitar V", CardType.V, ignoreTrades = listOf(
+                    // multiple items
+                    303925796280
+                )),
                 Card(109, "Corviknight V", CardType.V),
                 Card(110, "Corviknight VMAX", CardType.VMAX),
                 Card(117, "Stoutland V", CardType.V),
