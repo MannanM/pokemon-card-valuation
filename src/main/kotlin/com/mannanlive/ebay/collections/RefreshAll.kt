@@ -5,6 +5,7 @@ import com.mannanlive.ebay.collections.base.BaseSetBaseSetShadowless
 import com.mannanlive.ebay.collections.base.BaseSetFossil
 import com.mannanlive.ebay.collections.base.BaseSetJungle
 import com.mannanlive.ebay.collections.base.BaseSetTeamRocket
+import com.mannanlive.ebay.collections.ecard.ECardSkyridge
 import com.mannanlive.ebay.collections.sm.SunMoonGuardiansRisingBase
 import com.mannanlive.ebay.collections.sm.SunMoonBase
 import com.mannanlive.ebay.collections.sm.SunMoonBurningShadows
@@ -38,6 +39,7 @@ class RefreshAll {
                 collect(BaseSetFossil.collection)
                 collect(BaseSetJungle.collection)
                 collect(BaseSetTeamRocket.collection)
+                collect(ECardSkyridge.collection)
                 collect(XyEvolutions.collection)
                 collect(SunMoonBase.collection)
                 collect(SunMoonGuardiansRisingBase.collection)

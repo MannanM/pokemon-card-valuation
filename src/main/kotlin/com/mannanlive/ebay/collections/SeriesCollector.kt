@@ -12,10 +12,10 @@ import java.io.File
 class SeriesCollector {
     companion object {
         val outFormatter: DateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm")
+        private val eBayClient = EBayClient()
+        private val eBayParser = EBayParser()
+        private val objectMapper = ObjectMapper().registerKotlinModule()
     }
-    private val eBayClient = EBayClient()
-    private val eBayParser = EBayParser()
-    private val objectMapper = ObjectMapper().registerKotlinModule()
 
     fun collect(collection: SeriesCollection) {
         println("Processing ${collection.setName}...")
@@ -72,7 +72,7 @@ class SeriesCollector {
     }
 
     private fun calculatePadRequired(cardSet: List<Card>): Int {
-        val maxCardId = cardSet.maxBy { it.id }?.id ?: 0
+        val maxCardId = cardSet.maxByOrNull { it.id }?.id ?: 0
         return when {
             maxCardId >= 100 -> 3
             maxCardId >= 10 -> 2

@@ -1,4 +1,5 @@
 import React, { Component, CSSProperties, ReactNode } from "react";
+import { PieSlice, SetPieChart } from "./SetPieChart";
 import { CardData } from "../../data/Api";
 import { Utils } from "../../util/Utils";
 import { TimeRangeEvent } from "pondjs";
@@ -46,6 +47,7 @@ export class SetDisplay extends Component<SetDisplayProps> {
 
         let totalTradeCount = 0;
         let totalTradeVolume = 0.0;
+        let avgCost = 0.0;
         let frequentTradeCount = 0;
         let frequentTradeCardId: string = null;
 
@@ -54,6 +56,8 @@ export class SetDisplay extends Component<SetDisplayProps> {
 
         let firstTrade: Date = null;
         let lastTrade: Date = null;
+
+        let data: PieSlice[] = [];
 
         for (const key in cards) {
             const series = Utils.getTimeSeries(cards[key].data);
@@ -86,70 +90,83 @@ export class SetDisplay extends Component<SetDisplayProps> {
             }
 
             totalTradeVolume += series.sum('price', x => x);
+            const cardAverage = series.avg('price', x => x);
+            data.push({cardId: key, card: cards[key], averageValue: cardAverage});
+            avgCost += cardAverage;
             numberOfCards++;
         }
 
         const dailyTradeVolume = totalTradeVolume / moment(lastTrade).diff(moment(firstTrade), 'days');
 
-
-        const leftCellStyle: CSSProperties = {width: '200px', float: 'left', marginBottom: '13px', fontWeight: 'bold'};
-        const cellStyle: CSSProperties = {width: '350px', float: 'left', marginBottom: '13px'};
+        const leftCellStyle: CSSProperties = {width: '180px', float: 'left', marginBottom: '13px', fontWeight: 'bold'};
+        const cellStyle: CSSProperties = {width: '200px', float: 'left', marginBottom: '13px'};
 
         return <React.Fragment>
-            <div>
-                <div style={leftCellStyle}>Cards monitored:</div>
-                <div style={cellStyle}>{numberOfCards}</div>
+            <div style={{width: '210px', float: 'left', marginRight: '10px'}}>
+                <SetPieChart data={data} avgCost={avgCost} onChange={this.props.onChange} />
             </div>
-            <div>
-                <div style={leftCellStyle}>Most expensive card:</div>
-                <div style={cellStyle}>
-                    {this.link(maxCardId)} @ {
+            <div style={{width: '380px', float: 'left'}}>
+                <div>
+                    <div style={leftCellStyle}>Cards monitored:</div>
+                    <div style={cellStyle}>{numberOfCards}</div>
+                </div>
+                <div>
+                    <div style={leftCellStyle}>Average set price:</div>
+                    <div style={cellStyle}>
+                        {Utils.formatCurrency(avgCost)}
+                    </div>
+                </div>
+                <div>
+                    <div style={leftCellStyle}>Number of trades:</div>
+                    <div style={cellStyle}>
+                        {totalTradeCount} times
+                    </div>
+                </div>
+                <div>
+                    <div style={leftCellStyle}>Total trade volume:</div>
+                    <div style={cellStyle}>
+                        {Utils.formatCurrency(totalTradeVolume)}
+                    </div>
+                </div>
+                <div>
+                    <div style={leftCellStyle}>Most expensive card:</div>
+                    <div style={cellStyle}>
+                        {this.link(maxCardId)} @ {
                         Utils.formatCurrency(maxCardPrice.get('price'))
                     } {
                         Utils.createLink(maxCardPrice.get('ebayid'))
                     }
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Number of trades:</div>
-                <div style={cellStyle}>
-                    {totalTradeCount} times
+                <div>
+                    <div style={leftCellStyle}>Most traded card:</div>
+                    <div style={cellStyle}>
+                        {this.link(frequentTradeCardId)} @ {frequentTradeCount} times
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Trade volume:</div>
-                <div style={cellStyle}>
-                    {Utils.formatCurrency(totalTradeVolume)}
+                <div>
+                    <div style={leftCellStyle}>Rarest traded card:</div>
+                    <div style={cellStyle}>
+                        {this.link(leastTradeCardId)} @ {leastTradeCount} times
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Most traded card:</div>
-                <div style={cellStyle}>
-                    {this.link(frequentTradeCardId)} @ {frequentTradeCount} times
+                <div>
+                    <div style={leftCellStyle}>First recorded trade:</div>
+                    <div style={cellStyle} title={Utils.formatDate(firstTrade)}>
+                        {Utils.formatRelativeDate(firstTrade)}
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Rarest traded card:</div>
-                <div style={cellStyle}>
-                    {this.link(leastTradeCardId)} @ {leastTradeCount} times
+                <div>
+                    <div style={leftCellStyle}>Last recorded trade:</div>
+                    <div style={cellStyle} title={Utils.formatDate(lastTrade)}>
+                        {Utils.formatRelativeDate(lastTrade)}
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>First recorded trade:</div>
-                <div style={cellStyle} title={Utils.formatDate(firstTrade)}>
-                    {Utils.formatRelativeDate(firstTrade)}
-                </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Last recorded trade:</div>
-                <div style={cellStyle} title={Utils.formatDate(lastTrade)}>
-                    {Utils.formatRelativeDate(lastTrade)}
-                </div>
-            </div>
-            <div>
-                <div style={leftCellStyle}>Daily trade volume:</div>
-                <div style={cellStyle}>
-                    {Utils.formatCurrency(dailyTradeVolume)}
+                <div>
+                    <div style={leftCellStyle}>Daily trade volume:</div>
+                    <div style={cellStyle}>
+                        {Utils.formatCurrency(dailyTradeVolume)}
+                    </div>
                 </div>
             </div>
         </React.Fragment>
@@ -157,7 +174,7 @@ export class SetDisplay extends Component<SetDisplayProps> {
 
     private link(cardId: string): ReactNode {
         const option = {value: cardId, label: `#${cardId} ${this.props.cards[cardId].name}`};
-        return <a href={`#${this.props.set.value}-${cardId}`} onClick={()=>this.props.onChange(option)}>
+        return <a href={`#${this.props.set.value}-${cardId}`} onClick={() => this.props.onChange(option)}>
             {this.props.cards[cardId].name}
         </a>
     }

@@ -12,6 +12,7 @@ import org.apache.http.impl.client.BasicCookieStore
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.util.EntityUtils
 import java.io.BufferedReader
+import java.lang.Exception
 
 private const val ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
 private const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
@@ -29,6 +30,16 @@ class EBayClient {
         .build()
 
     fun getHistory(searchString: String, excludeString: String): String {
+        return try {
+            doGetHistory(searchString, excludeString)
+        } catch (ex: Exception) {
+            println("${ex::class.java.simpleName}: ${ex.message}")
+            //try again
+            doGetHistory(searchString, excludeString)
+        }
+    }
+
+    private fun doGetHistory(searchString: String, excludeString: String): String {
         val response = extractResponse(
             HttpGet(
                 "https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=${searchString}&_in_kw=1&_ex_kw=${excludeString}&_sacat=0&LH_Sold=1&_udlo=&_udhi=&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=15&_dmd=1&_ipg=200&LH_Complete=1&_fosrp=1".also {
