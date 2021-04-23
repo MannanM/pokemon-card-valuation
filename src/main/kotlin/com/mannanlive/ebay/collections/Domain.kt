@@ -54,5 +54,6 @@ enum class CardType {
     SECRET,
     SHINING,
     PRISM_STAR,
-    SHINY_GX
+    SHINY_GX,
+    LVX
 }

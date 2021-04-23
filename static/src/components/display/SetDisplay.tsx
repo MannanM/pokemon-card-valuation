@@ -1,5 +1,5 @@
 import React, { Component, CSSProperties, ReactNode } from "react";
-import { PieSlice, SetPieChart } from "./SetPieChart";
+import { PieSlice, SetPieChart } from "../charts/SetPieChart";
 import { CardData } from "../../data/Api";
 import { Utils } from "../../util/Utils";
 import { TimeRangeEvent } from "pondjs";
@@ -128,6 +128,7 @@ export class SetDisplay extends Component<SetDisplayProps> {
                         {Utils.formatCurrency(totalTradeVolume)}
                     </div>
                 </div>
+                {maxCardId &&
                 <div>
                     <div style={leftCellStyle}>Most expensive card:</div>
                     <div style={cellStyle}>
@@ -138,18 +139,23 @@ export class SetDisplay extends Component<SetDisplayProps> {
                     }
                     </div>
                 </div>
+                }
+                {frequentTradeCardId &&
                 <div>
                     <div style={leftCellStyle}>Most traded card:</div>
                     <div style={cellStyle}>
                         {this.link(frequentTradeCardId)} @ {frequentTradeCount} times
                     </div>
                 </div>
+                }
+                {leastTradeCardId &&
                 <div>
                     <div style={leftCellStyle}>Rarest traded card:</div>
                     <div style={cellStyle}>
                         {this.link(leastTradeCardId)} @ {leastTradeCount} times
                     </div>
                 </div>
+                }
                 <div>
                     <div style={leftCellStyle}>First recorded trade:</div>
                     <div style={cellStyle} title={Utils.formatDate(firstTrade)}>

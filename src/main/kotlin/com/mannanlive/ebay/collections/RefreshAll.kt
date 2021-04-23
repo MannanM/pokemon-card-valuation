@@ -5,6 +5,7 @@ import com.mannanlive.ebay.collections.base.BaseSetBaseSetShadowless
 import com.mannanlive.ebay.collections.base.BaseSetFossil
 import com.mannanlive.ebay.collections.base.BaseSetJungle
 import com.mannanlive.ebay.collections.base.BaseSetTeamRocket
+import com.mannanlive.ebay.collections.dp.DiamondPearlMajesticDawn
 import com.mannanlive.ebay.collections.ecard.ECardSkyridge
 import com.mannanlive.ebay.collections.sm.SunMoonGuardiansRisingBase
 import com.mannanlive.ebay.collections.sm.SunMoonBase
@@ -34,25 +35,26 @@ class RefreshAll {
         @JvmStatic
         fun main(args: Array<String>) {
             SeriesCollector().run {
-                collect(BaseSetBaseSet.collection)
-                collect(BaseSetBaseSetShadowless.collection)
-                collect(BaseSetFossil.collection)
-                collect(BaseSetJungle.collection)
-                collect(BaseSetTeamRocket.collection)
-                collect(ECardSkyridge.collection)
-                collect(XyEvolutions.collection)
-                collect(SunMoonBase.collection)
-                collect(SunMoonGuardiansRisingBase.collection)
-                collect(SunMoonBurningShadows.collection)
-                collect(SunMoonShiningLegends.collection)
-                collect(SunMoonCrimsonInvasion.collection)
-                collect(SunMoonUltraPrism.collection)
-                collect(SunMoonForbiddenLight.collection)
-                collect(SunMoonCelestialStorm.collection)
-                collect(SunMoonDragonMajesty.collection)
-                collect(SunMoonLostThunder.collection)
-                collect(SunMoonTeamUp.collection)
-                collect(SunMoonUnbrokenBonds.collection)
+//                collect(BaseSetBaseSet.collection)
+//                collect(BaseSetBaseSetShadowless.collection)
+//                collect(BaseSetFossil.collection)
+//                collect(BaseSetJungle.collection)
+//                collect(BaseSetTeamRocket.collection)
+//                collect(ECardSkyridge.collection)
+//                collect(DiamondPearlMajesticDawn.collection)
+//                collect(XyEvolutions.collection)
+//                collect(SunMoonBase.collection)
+//                collect(SunMoonGuardiansRisingBase.collection)
+//                collect(SunMoonBurningShadows.collection)
+//                collect(SunMoonShiningLegends.collection)
+//                collect(SunMoonCrimsonInvasion.collection)
+//                collect(SunMoonUltraPrism.collection)
+//                collect(SunMoonForbiddenLight.collection)
+//                collect(SunMoonCelestialStorm.collection)
+//                collect(SunMoonDragonMajesty.collection)
+//                collect(SunMoonLostThunder.collection)
+//                collect(SunMoonTeamUp.collection)
+//                collect(SunMoonUnbrokenBonds.collection)
                 collect(SunMoonUnifiedMinds.collection)
                 collect(SunMoonCosmicEclipse.collection)
                 collect(SunMoonHiddenFates.collection)

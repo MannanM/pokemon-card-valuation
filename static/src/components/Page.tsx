@@ -58,7 +58,7 @@ export class Page extends Component<{}, PageState> {
                 Page.setHash(selectedSet, null);
                 this.setState({
                     defaultSet: selectedSet == null ? '' : selectedSet.value,
-                    defaultCard: '',
+                    // defaultCard: '',
                     selectedSet: selectedSet
                 });
                 if (selectedSet) {

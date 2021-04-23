@@ -151,13 +151,13 @@ class $outClass {
         private const val API_KEY = "8b0b1e93-f297-4104-bf5e-42bf19ca69c0"
 
         @JvmStatic
-//        fun main(args: Array<String>) = CreateCollection().listSets()
-        fun main(args: Array<String>) = listOf(
-            "ecard3"
-        ).forEach {
-            println("Processing $it...")
-            CreateCollection().create(it.toLowerCase())
-        }
+        fun main(args: Array<String>) = CreateCollection().listSets()
+//        fun main(args: Array<String>) = listOf(
+//            "dp5"
+//        ).forEach {
+//            println("Processing $it...")
+//            CreateCollection().create(it.toLowerCase())
+//        }
 
         fun nameVariants(input: String): String =
             input.split(" ").joinToString(" ") {
