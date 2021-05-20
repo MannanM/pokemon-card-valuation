@@ -74,7 +74,13 @@ class SunMoonHiddenFates {
                 Card(46, "Leafeon GX", CardType.SHINY_GX, prefix = "SV"),
                 Card(47, "Decidueye GX", CardType.SHINY_GX, prefix = "SV"),
                 Card(48, "Golisopod GX", CardType.SHINY_GX, prefix = "SV"),
-                Card(49, "Charizard GX", CardType.SHINY_GX, prefix = "SV"),
+                Card(49, "Charizard GX", CardType.SHINY_GX, prefix = "SV", ignoreTrades = listOf(
+                    // fake
+                    224233895766,
+                    // graded
+                    124603516624,
+                    274709191471
+                )),
                 Card(50, "Ho-Oh GX", CardType.SHINY_GX, prefix = "SV"),
                 Card(51, "Reshiram GX", CardType.SHINY_GX, prefix = "SV"),
                 Card(52, "Turtonator GX", CardType.SHINY_GX, prefix = "SV"),
@@ -122,7 +128,7 @@ class SunMoonHiddenFates {
                 Card(94, "Tapu Lele GX", CardType.SECRET, prefix = "SV")
             ),
             "Hidden%20Fates",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo", "psa", "japanese", "bgs", "metal")
         )
 
         @JvmStatic
