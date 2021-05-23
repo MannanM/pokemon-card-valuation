@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 const basePath = __dirname;
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
     return {
         context: path.join(basePath, 'src'),
         resolve: {
@@ -18,6 +18,13 @@ module.exports = (env) => {
         output: {
             path: path.join(basePath, 'dist'),
             filename: '[name].js',
+        },
+        optimization: {
+            // if it gets too large, enable this
+            // splitChunks: {
+            //     chunks: 'all',
+            //     maxSize: 1000000,
+            // },
         },
         module: {
             rules: [
@@ -47,7 +54,7 @@ module.exports = (env) => {
             ],
         },
         // For development https://webpack.js.org/configuration/devtool/#for-development
-        devtool: 'inline-source-map',
+        devtool: argv.mode === 'development' ? 'inline-source-map' : 'none',
         devServer: {
             port: 8080,
             noInfo: true,
@@ -71,10 +78,7 @@ module.exports = (env) => {
             //Only load english from moment.js
             new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/),
             //Don't load charts we don't use
-            new webpack.NormalModuleReplacementPlugin(
-                /(Area|Band|Bar|Box|Line)Chart/,
-                './components/ScatterChart.js'
-            ),
+            new webpack.NormalModuleReplacementPlugin(/(Area|Band|Bar|Box)Chart/, './components/ScatterChart.js'),
             new BundleAnalyzerPlugin({
                 analyzerMode: 'json',
                 openAnalyzer: false
