@@ -122,12 +122,12 @@ export default class TrendLine extends React.Component<TrendlineProps, TrendLine
             return <React.Fragment/>
         }
 
+        const avgValue = this.props.series.avg(this.props.column, e => e);
         if (Math.abs(this.state.weeklyTrend) < 1) {
-            const value = this.props.series.avg(this.props.column, e => e);
-            const label = `Avg: $${value.toFixed(2)}`;
-            return TrendLine.chartAndLabel(label, <Baseline {...this.props} value={value} label={''}/>)
+            const label = `Avg: $${avgValue.toFixed(2)}`;
+            return TrendLine.chartAndLabel(label, <Baseline {...this.props} value={avgValue} label={''}/>)
         } else {
-            const label = `Trend: $${this.state.weeklyTrend.toFixed(2)}/week`;
+            const label = `Avg: $${avgValue.toFixed(2)}, Trend: $${this.state.weeklyTrend.toFixed(2)}/week`;
             return TrendLine.chartAndLabel(label, <LineChart
                 {...this.props}
                 columns={[this.props.column]}

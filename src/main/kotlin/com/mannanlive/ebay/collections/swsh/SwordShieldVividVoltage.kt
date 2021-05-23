@@ -15,11 +15,17 @@ class SwordShieldVividVoltage {
                     // multiple items
                     393180774797
                 )),
-                Card(21, "Orbeetle VMAX", CardType.VMAX),
+                Card(21, "Orbeetle VMAX", CardType.VMAX, ignoreTrades = listOf(
+                    // multiple items
+                    254893056535,
+                    //graded
+                    184721515944
+                )),
                 Card(22, "Zarude V", CardType.V),
-                Card(23, "Charmander", CardType.NORMAL),
-                Card(24, "Charmeleon", CardType.NORMAL),
-                Card(25, "Charizard", CardType.NORMAL),
+                Card(25, "Charizard", CardType.NORMAL, ignoreTrades = listOf(
+                    //graded
+                    303952633805
+                )),
                 Card(29, "Talonflame V", CardType.V),
                 Card(36, "Galarian Darmanitan V", CardType.V),
                 Card(37, "Galarian Darmanitan VMAX", CardType.VMAX),
@@ -58,7 +64,10 @@ class SwordShieldVividVoltage {
                 Card(167, "Zarude V", CardType.FULL_ART),
                 Card(168, "Talonflame V", CardType.FULL_ART),
                 Card(169, "Galarian Darmanitan V", CardType.FULL_ART),
-                Card(170, "Pikachu V", CardType.FULL_ART),
+                Card(170, "Pikachu V", CardType.FULL_ART, ignoreTrades = listOf(
+                    //multiple
+                    224375525262
+                )),
                 Card(171, "Ampharos V", CardType.FULL_ART),
                 Card(172, "Alakazam V", CardType.FULL_ART),
                 Card(173, "Coalossal V", CardType.FULL_ART),

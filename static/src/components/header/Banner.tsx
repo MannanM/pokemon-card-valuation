@@ -1,35 +1,19 @@
 import React, {Component, ReactNode} from 'react';
-import {Donate} from './Donate';
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 export class Banner extends Component {
     render(): ReactNode {
-        return <nav style={{
-            height: '60px',
-            backgroundColor: '#000',
-            boxShadow: '0 4px 4px rgba(0,0,0,.25)',
-            marginBottom: '15px',
-            padding: '0 20px'
-        }}>
-            <div style={{
-                float: 'left',
-                color: '#fff',
-                fontFamily: 'sans-serif'
-            }}>
-                <h1>
-                    Pokémon Card Valuation Tool
-                </h1>
-            </div>
-            <div style={{float:'right', paddingTop: '20px'}}>
-                <Donate />
-            </div>
-            <div style={{float:'right', paddingTop: '16px', paddingRight: '5px'}}>
-                <a className='github-button'
-                   href='https://github.com/MannanM/pokemon-card-valuation'
-                   data-size='large'
-                   aria-label='Star MannanM/pokemon-card-valuation on GitHub'>
-                    Source
-                </a>
-            </div>
-        </nav>
+        return <Navbar bg="light" expand="md">
+            <Navbar.Brand href="/">Pokémon Card Valuation Tool</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="https://github.com/MannanM/pokemon-card-valuation">Source Code</Nav.Link>
+                    <Nav.Link href="https://www.buymeacoffee.com/MannanM">Support</Nav.Link>
+                    <Nav.Link href="https://github.com/MannanM/pokemon-card-valuation/issues/new">Contact</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     }
 }

@@ -62,7 +62,7 @@ export class SetPieChart extends Component<CardImageProps, CardImageState> {
                     }
                 />
             </div>
-            <div>
+            <div style={{textAlign: 'center'}}>
                 <strong>Average price:</strong>
                 &nbsp;
                 {Utils.formatCurrency(this.props.avgCost)}

@@ -34,7 +34,11 @@ class SwordShieldChampionsPath {
                 Card(76, "Gardevoir VMAX", CardType.HYPER_RARE),
                 Card(77, "Kabu", CardType.HYPER_RARE),
                 Card(78, "Piers", CardType.HYPER_RARE),
-                Card(79, "Charizard V", CardType.SHINY),
+                Card(79, "Charizard V", CardType.SHINY, ignoreTrades = listOf(
+                    //graded
+                    123015602278,
+                    184763883786
+                )),
                 Card(80, "Suspicious Food Tin", CardType.SECRET_RARE)
             ),
             "champion",

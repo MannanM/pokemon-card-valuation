@@ -1,11 +1,16 @@
-import React, {Component, ReactNode} from "react";
-import {CardSelector} from "./CardSelector";
-import {Banner} from "./header/Banner";
-import {About} from "./display/About";
-import {SetDisplay} from "./display/SetDisplay";
-import {CardDisplay} from "./display/CardDisplay";
-import {Api, CardData, Expansion} from "../data/Api";
-import {GoogleAnalytics} from "../analytics/GoogleAnalytics";
+import React, { Component, ReactNode } from "react";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import { CardSelector } from "./CardSelector";
+import { Banner } from "./header/Banner";
+import { About } from "./display/About";
+import { SetDisplay } from "./display/SetDisplay";
+import { CardDisplay } from "./display/CardDisplay";
+import { Api, CardData, Expansion } from "../data/Api";
+import { GoogleAnalytics } from "../analytics/GoogleAnalytics";
 
 interface PageState {
     selectedOption: any,
@@ -110,38 +115,42 @@ export class Page extends Component<{}, PageState> {
         return (
             <React.Fragment>
                 <Banner/>
-                <div style={{maxWidth: '800px', margin: '0 auto'}}>
-                    <CardSelector
-                        callback={this.handleSetChange}
-                        options={setOptions}
-                        placeholder={'Select set...'}
-                        defaultValue={this.state.defaultSet}
-                    />
-                    {
-                        this.state.selectedSet &&
-                        <CardSelector
-                            callback={this.handleChange}
-                            options={options}
-                            placeholder={'Select card...'}
-                            defaultValue={defaultCard}
-                        />
-                    }
-                    {
-                        !this.state.selectedOption && this.state.selectedSet && <SetDisplay
-                            set={this.state.selectedSet} cards={this.state.cards} onChange={this.handleChange}/>
-                    }
-                    {
-                        !this.state.selectedOption && !this.state.selectedSet && <About/>
-                    }
-                    {
-                        this.state.selectedOption &&
-                        <CardDisplay
-                            cardSet={this.state.selectedSet.value}
-                            cardId={this.state.selectedOption.value}
-                            card={this.state.cards[this.state.selectedOption.value]}
-                        />
-                    }
-                </div>
+                <Container>
+                    <Row className={'mt-2'}>
+                        <Col>
+                            <CardSelector
+                                callback={this.handleSetChange}
+                                options={setOptions}
+                                placeholder={'Select set...'}
+                                defaultValue={this.state.defaultSet}
+                            />
+                            {
+                                this.state.selectedSet &&
+                                <CardSelector
+                                    callback={this.handleChange}
+                                    options={options}
+                                    placeholder={'Select card...'}
+                                    defaultValue={defaultCard}
+                                />
+                            }
+                            {
+                                !this.state.selectedOption && this.state.selectedSet && <SetDisplay
+                                    set={this.state.selectedSet} cards={this.state.cards} onChange={this.handleChange}/>
+                            }
+                            {
+                                !this.state.selectedOption && !this.state.selectedSet && <About/>
+                            }
+                            {
+                                this.state.selectedOption &&
+                                <CardDisplay
+                                    cardSet={this.state.selectedSet.value}
+                                    cardId={this.state.selectedOption.value}
+                                    card={this.state.cards[this.state.selectedOption.value]}
+                                />
+                            }
+                        </Col>
+                    </Row>
+                </Container>
             </React.Fragment>
         );
     }

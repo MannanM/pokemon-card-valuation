@@ -53,11 +53,17 @@ class SwordShieldBase {
                 Card(200, "Marnie", CardType.FULL_ART),
                 Card(201, "Professor's Research", CardType.FULL_ART),
                 Card(202, "Team Yell Grunt", CardType.FULL_ART),
-                Card(203, "Lapras VMAX", CardType.HYPER_RARE),
+                Card(203, "Lapras VMAX", CardType.HYPER_RARE, ignoreTrades = listOf(
+                    //graded
+                    154248057376
+                )),
                 Card(204, "Morpeko VMAX", CardType.HYPER_RARE),
                 Card(205, "Stonjourner VMAX", CardType.HYPER_RARE),
                 Card(206, "Snorlax VMAX", CardType.HYPER_RARE),
-                Card(207, "Bede", CardType.HYPER_RARE),
+                Card(207, "Bede", CardType.HYPER_RARE, ignoreTrades = listOf(
+                    //incorrect
+                    184767536169
+                )),
                 Card(208, "Marnie", CardType.HYPER_RARE),
                 Card(209, "Professor's Research", CardType.HYPER_RARE),
                 Card(210, "Team Yell Grunt", CardType.HYPER_RARE),

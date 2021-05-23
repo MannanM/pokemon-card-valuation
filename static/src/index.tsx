@@ -4,8 +4,9 @@ import * as ReactDOM from 'react-dom';
 import {Page} from './components/Page';
 import {GoogleAnalytics} from './analytics/GoogleAnalytics';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './img/favicon.ico';
-import './data/sets.json'
+import './data/sets.json';
 
 [   'SWSH1', 'SWSH2', 'SWSH3', 'SWSH35', 'SWSH4',
     'XY12',

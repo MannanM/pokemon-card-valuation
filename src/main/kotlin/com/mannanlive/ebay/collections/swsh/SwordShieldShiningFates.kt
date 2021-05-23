@@ -143,7 +143,11 @@ class SwordShieldShiningFates {
                 Card(104, "Dubwool", CardType.SHINY, prefix = "SV"),
                 Card(105, "Rillaboom V", CardType.V, prefix = "SV"),
                 Card(106, "Rillaboom VMAX", CardType.VMAX, prefix = "SV"),
-                Card(107, "Charizard VMAX", CardType.VMAX, prefix = "SV"),
+                Card(107, "Charizard VMAX", CardType.VMAX, prefix = "SV", ignoreTrades = listOf(
+                    //graded
+                    324596463013,
+                    284264942789
+                )),
                 Card(108, "Centiskorch V", CardType.V, prefix = "SV"),
                 Card(109, "Centiskorch VMAX", CardType.VMAX, prefix = "SV"),
                 Card(110, "Lapras V", CardType.V, prefix = "SV"),
