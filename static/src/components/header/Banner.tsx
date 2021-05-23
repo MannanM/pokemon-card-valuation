@@ -8,7 +8,7 @@ export class Banner extends Component {
             <Navbar.Brand href="/">Pokémon Card Valuation Tool</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav className="ml-auto">
                     <Nav.Link href="https://github.com/MannanM/pokemon-card-valuation">Source Code</Nav.Link>
                     <Nav.Link href="https://www.buymeacoffee.com/MannanM">Support</Nav.Link>
                     <Nav.Link href="https://github.com/MannanM/pokemon-card-valuation/issues/new">Contact</Nav.Link>

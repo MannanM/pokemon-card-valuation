@@ -2,7 +2,7 @@ import React, { ReactFragment } from "react";
 import moment from "moment";
 import { TimeRangeEvent, TimeSeries } from "pondjs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons/faExternalLinkAlt";
 
 export class Utils {
     public static getTimeSeries(data: any): TimeSeries {

@@ -1,14 +1,14 @@
 import React from 'react';
 import moment from 'moment';
 import { TimeRange, TimeSeries } from 'pondjs';
-import { ChartContainer, ChartRow, Charts, Resizable, ScatterChart, YAxis, } from 'react-timeseries-charts';
+import { ChartContainer, ChartRow, Charts, Resizable, ScatterChart, YAxis } from 'react-timeseries-charts';
 import TrendLine from './TrendLine';
 import { GoogleAnalytics } from '../../analytics/GoogleAnalytics';
-import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { faSync } from '@fortawesome/free-solid-svg-icons/faSync';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/cjs/Col";
-import Row from "react-bootstrap/cjs/Row";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export interface EBayChartProps {
     series: TimeSeries
@@ -121,7 +121,7 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
                                                 type='linear'
                                                 format='$,.2f'
                                                 // should turn off for low resolutions
-                                                visible={true}
+                                                visible={window.innerWidth > 560}
                                             />
                                             <Charts>
                                                 <ScatterChart
@@ -146,7 +146,7 @@ export class EBayChart extends React.Component<EBayChartProps, EBayChartState> {
                                     </ChartContainer>
                                 </Resizable>
                             </div>
-                            <div>{text}</div>
+                            <div className={'d-none d-sm-block'}>{text}</div>
                         </div>
                     </Col>
                 </Row>

@@ -1,9 +1,10 @@
-let path = require('path');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-let webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
-var basePath = __dirname;
+const basePath = __dirname;
 
 module.exports = (env) => {
     return {
@@ -66,6 +67,17 @@ module.exports = (env) => {
             new MiniCssExtractPlugin({
                 filename: "[name].css",
                 chunkFilename: "[id].css"
+            }),
+            //Only load english from moment.js
+            new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/),
+            //Don't load charts we don't use
+            new webpack.NormalModuleReplacementPlugin(
+                /(Area|Band|Bar|Box|Line)Chart/,
+                './components/ScatterChart.js'
+            ),
+            new BundleAnalyzerPlugin({
+                analyzerMode: 'json',
+                openAnalyzer: false
             }),
         ],
     }
