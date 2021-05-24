@@ -1,8 +1,11 @@
-import React, { Component, CSSProperties, ReactNode } from 'react';
-import { Utils } from '../../util/Utils';
+import React, { Component, ReactNode } from 'react';
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+
+import { Utils } from '../../util/Utils';
+import { DateTooltip } from "../../util/DateTooltip";
 
 interface CardStatsProps {
     name: string,
@@ -32,8 +35,8 @@ export class CardStats extends Component<CardStatsProps> {
                         First Auction:
                     </strong>
                 </Col>
-                <Col title={Utils.formatDate(this.props.first)}>
-                    {Utils.formatRelativeDate(this.props.first)}
+                <Col>
+                    <DateTooltip when={this.props.first} />
                 </Col>
             </Row>
             <Row>
@@ -42,8 +45,8 @@ export class CardStats extends Component<CardStatsProps> {
                         Last Auction:
                     </strong>
                 </Col>
-                <Col title={Utils.formatDate(this.props.last)}>
-                    {Utils.formatRelativeDate(this.props.last)}
+                <Col>
+                    <DateTooltip when={this.props.last} />
                 </Col>
             </Row>
             <Row>

@@ -99,7 +99,8 @@ class SwordShieldVividVoltage {
                     294110324995,
                     //graded
                     143901962276,
-                    133681122022
+                    133681122022,
+                    133737087633
                 )),
                 Card(189, "Coalossal VMAX", CardType.HYPER_RARE),
                 Card(190, "Aegislash VMAX", CardType.HYPER_RARE),

@@ -2,13 +2,14 @@ import React, { Component, ReactNode } from "react";
 
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { TimeRangeEvent } from "pondjs";
+import moment from "moment";
 
+import Row from "react-bootstrap/Row";
 import { PieSlice, SetPieChart } from "../charts/SetPieChart";
 import { CardData } from "../../data/Api";
 import { Utils } from "../../util/Utils";
-import { TimeRangeEvent } from "pondjs";
-import moment from "moment";
+import { DateTooltip } from "../../util/DateTooltip";
 
 interface SetDisplayProps {
     set: any,
@@ -157,14 +158,14 @@ export class SetDisplay extends Component<SetDisplayProps> {
                 }
                 <Row>
                     <Col><strong>First trade:</strong></Col>
-                    <Col title={Utils.formatDate(firstTrade)}>
-                        {Utils.formatRelativeDate(firstTrade)}
+                    <Col>
+                        <DateTooltip when={firstTrade} />
                     </Col>
                 </Row>
                 <Row>
                     <Col><strong>Last trade:</strong></Col>
-                    <Col title={Utils.formatDate(lastTrade)}>
-                        {Utils.formatRelativeDate(lastTrade)}
+                    <Col>
+                        <DateTooltip when={lastTrade} />
                     </Col>
                 </Row>
                 <Row>

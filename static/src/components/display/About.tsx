@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from "react";
 import Alert from "react-bootstrap/Alert";
+import { LastRefreshed } from "../LastRefreshed";
 
 export class About extends Component {
     render(): ReactNode {
 
         return <div style={{
             textAlign: 'center',
-            fontFamily: 'sans-serif',
             paddingTop: '15px'
         }}>
             <h3>Have you ever wondered what the price of a particular Pokémon card was?</h3>
@@ -51,6 +51,7 @@ export class About extends Component {
                     issues, corrections or suggestions
                 </a> you might have.
             </p>
+            <LastRefreshed />
         </div>;
     }
 }
