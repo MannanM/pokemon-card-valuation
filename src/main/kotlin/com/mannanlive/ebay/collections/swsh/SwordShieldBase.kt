@@ -49,7 +49,10 @@ class SwordShieldBase {
                     )),
                 Card(197, "Snorlax", CardType.FULL_ART),
                 Card(198, "Cramorant", CardType.FULL_ART),
-                Card(199, "Bede", CardType.FULL_ART),
+                Card(199, "Bede", CardType.FULL_ART, ignoreTrades = listOf(
+                    //graded
+                    324649248135
+                )),
                 Card(200, "Marnie", CardType.FULL_ART),
                 Card(201, "Professor's Research", CardType.FULL_ART),
                 Card(202, "Team Yell Grunt", CardType.FULL_ART),
