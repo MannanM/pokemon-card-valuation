@@ -31,6 +31,7 @@ data class Card(
         get() = alternateSearchString
             .replace(" ", "+")
             .replace("&", "")
+            .replace("◇", "")
             .replace("(", "%28")
             .replace(")", "%29")
             .replace(",", "%2C")
