@@ -4,6 +4,10 @@
       "name": "Sword & Shield",
       "sets": [
         {
+          "name": "Chilling Reign",
+          "value": "SWSH6"
+        },
+        {
           "name": "Battle Styles",
           "value": "SWSH5"
         },
