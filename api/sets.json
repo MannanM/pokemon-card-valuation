@@ -4,6 +4,10 @@
       "name": "Sword & Shield",
       "sets": [
         {
+          "name": "Evolving Skies",
+          "value": "SWSH7"
+        },
+        {
           "name": "Chilling Reign",
           "value": "SWSH6"
         },
