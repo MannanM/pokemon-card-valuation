@@ -27,6 +27,7 @@ import com.mannanlive.ebay.collections.swsh.SwordShieldBattleStyles
 import com.mannanlive.ebay.collections.swsh.SwordShieldChampionsPath
 import com.mannanlive.ebay.collections.swsh.SwordShieldChillingReign
 import com.mannanlive.ebay.collections.swsh.SwordShieldDarknessAblaze
+import com.mannanlive.ebay.collections.swsh.SwordShieldEvolvingSkies
 import com.mannanlive.ebay.collections.swsh.SwordShieldRebelClash
 import com.mannanlive.ebay.collections.swsh.SwordShieldShiningFates
 import com.mannanlive.ebay.collections.swsh.SwordShieldVividVoltage
@@ -68,6 +69,7 @@ class RefreshAll {
                 collect(SwordShieldShiningFates.collection)
                 collect(SwordShieldBattleStyles.collection)
                 collect(SwordShieldChillingReign.collection)
+                collect(SwordShieldEvolvingSkies.collection)
             }
         }
     }
