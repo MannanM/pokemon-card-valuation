@@ -109,7 +109,7 @@ class SwordShieldChillingReign {
                 Card(233, "Fighting Energy", CardType.SECRET)
             ),
             "Chilling%20Reign",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

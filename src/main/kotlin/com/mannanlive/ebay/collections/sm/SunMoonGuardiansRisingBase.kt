@@ -67,7 +67,7 @@ class SunMoonGuardiansRisingBase {
 
             ),
             "Guardians%20Rising",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

@@ -95,7 +95,7 @@ class BaseSetTeamRocket {
                 Card(83, "Dark Raichu", CardType.NORMAL)
             ),
             "rocket",
-            listOf("shadowless", "first", "edition", "psa", "bgs")
+            listOf("shadowless", "first", "edition",)
         )
 
         @JvmStatic

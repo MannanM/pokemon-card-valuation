@@ -96,7 +96,7 @@ class $outClass {
     private fun writeFooter(name: String) {
         builder.append("""            ),
             "${name.replace(" ", "%20")}",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo", "japanese")
         )
 
         @JvmStatic

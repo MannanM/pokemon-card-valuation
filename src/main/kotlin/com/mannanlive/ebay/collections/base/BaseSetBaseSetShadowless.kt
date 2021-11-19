@@ -10,7 +10,7 @@ class BaseSetBaseSetShadowless {
             "BSS",
             BaseSetCards,
             "shadowless",
-            listOf("psa", "bgs")
+            listOf()
         )
 
         @JvmStatic

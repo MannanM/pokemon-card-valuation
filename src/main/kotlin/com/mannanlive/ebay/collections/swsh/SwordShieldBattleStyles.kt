@@ -1,5 +1,5 @@
 package com.mannanlive.ebay.collections.swsh
-    
+
 import com.mannanlive.ebay.collections.Card
 import com.mannanlive.ebay.collections.CardType
 import com.mannanlive.ebay.collections.SeriesCollection
@@ -13,36 +13,48 @@ class SwordShieldBattleStyles {
                 Card(6, "Kricketune V", CardType.V),
                 Card(18, "Flapple V", CardType.V),
                 Card(19, "Flapple VMAX", CardType.VMAX),
-                Card(21, "Victini V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    284236171749
-                )),
+                Card(
+                    21, "Victini V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        284236171749
+                    )
+                ),
                 Card(22, "Victini VMAX", CardType.VMAX),
-                Card(40, "Empoleon V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    303925796280
-                )),
-                Card(50, "Tapu Koko V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    154386897766
-                )),
+                Card(
+                    40, "Empoleon V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        303925796280
+                    )
+                ),
+                Card(
+                    50, "Tapu Koko V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        154386897766
+                    )
+                ),
                 Card(51, "Tapu Koko VMAX", CardType.VMAX),
-                Card(62, "Mimikyu V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    133699924586
-                )),
+                Card(
+                    62, "Mimikyu V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        133699924586
+                    )
+                ),
                 Card(63, "Necrozma V", CardType.V),
-                Card(85, "Single Strike Urshifu V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    154386906973
-                )),
+                Card(
+                    85, "Single Strike Urshifu V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        154386906973
+                    )
+                ),
                 Card(86, "Single Strike Urshifu VMAX", CardType.VMAX),
                 Card(87, "Rapid Strike Urshifu V", CardType.V),
                 Card(88, "Rapid Strike Urshifu VMAX", CardType.VMAX),
-                Card(97, "Tyranitar V", CardType.V, ignoreTrades = listOf(
-                    // multiple items
-                    303925796280
-                )),
+                Card(
+                    97, "Tyranitar V", CardType.V, ignoreTrades = listOf(
+                        // multiple items
+                        303925796280
+                    )
+                ),
                 Card(109, "Corviknight V", CardType.V),
                 Card(110, "Corviknight VMAX", CardType.VMAX),
                 Card(117, "Stoutland V", CardType.V),
@@ -90,7 +102,7 @@ class SwordShieldBattleStyles {
                 Card(183, "Single Strike Energy", CardType.SECRET)
             ),
             "Battle%20Styles",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo", "japanese")
         )
 
         @JvmStatic

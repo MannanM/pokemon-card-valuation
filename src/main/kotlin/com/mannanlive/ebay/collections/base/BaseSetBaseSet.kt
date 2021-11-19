@@ -233,7 +233,7 @@ class BaseSetBaseSet {
             "BS",
             BaseSetCards,
             "base",
-            listOf("shadowless", "first", "psa", "bgs", "1st", "german")
+            listOf("shadowless", "first", "1st", "german")
         )
 
         @JvmStatic

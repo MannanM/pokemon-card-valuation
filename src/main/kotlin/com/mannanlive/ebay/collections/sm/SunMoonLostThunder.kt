@@ -74,7 +74,7 @@ class SunMoonLostThunder {
                 Card(236, "Wait and See Hammer", CardType.SECRET)
             ),
             "Lost%20Thunder",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

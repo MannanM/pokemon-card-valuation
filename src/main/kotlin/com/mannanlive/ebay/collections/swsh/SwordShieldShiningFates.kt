@@ -165,7 +165,7 @@ class SwordShieldShiningFates {
                 Card(122, "Eternatus VMAX", CardType.SECRET, prefix = "SV")
             ),
             "Shining%20Fates",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

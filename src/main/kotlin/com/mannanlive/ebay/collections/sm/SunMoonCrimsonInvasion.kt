@@ -45,7 +45,7 @@ class SunMoonCrimsonInvasion {
                 Card(124, "Water Energy", CardType.SECRET)
             ),
             "Crimson%20Invasion",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

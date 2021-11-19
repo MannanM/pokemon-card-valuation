@@ -117,7 +117,7 @@ class SwordShieldEvolvingSkies {
                 Card(237, "Metal Energy", CardType.SECRET)
             ),
             "Evolving%20Skies",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

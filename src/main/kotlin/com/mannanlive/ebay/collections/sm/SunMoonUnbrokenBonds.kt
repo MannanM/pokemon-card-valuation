@@ -70,7 +70,7 @@ class SunMoonUnbrokenBonds {
                 Card(234, "Triple Acceleration Energy", CardType.SECRET)
             ),
             "Unbroken%20Bonds",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

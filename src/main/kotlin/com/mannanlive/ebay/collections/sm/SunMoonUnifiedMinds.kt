@@ -64,7 +64,7 @@ class SunMoonUnifiedMinds {
                 Card(248, "Dragonite-GX", CardType.RAINBOW)
             ),
             "Unified%20Minds",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

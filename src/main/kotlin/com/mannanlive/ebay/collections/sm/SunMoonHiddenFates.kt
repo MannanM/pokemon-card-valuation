@@ -128,7 +128,7 @@ class SunMoonHiddenFates {
                 Card(94, "Tapu Lele GX", CardType.SECRET, prefix = "SV")
             ),
             "Hidden%20Fates",
-            listOf("jumbo", "promo", "psa", "japanese", "bgs", "metal")
+            listOf("jumbo", "promo","japanese", "bgs", "metal")
         )
 
         @JvmStatic

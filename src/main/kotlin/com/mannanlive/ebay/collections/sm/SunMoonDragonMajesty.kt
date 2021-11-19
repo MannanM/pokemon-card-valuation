@@ -34,7 +34,7 @@ class SunMoonDragonMajesty {
                 Card(78, "Ultra Necrozma-GX", CardType.SECRET)
             ),
             "Dragon%20Majesty",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

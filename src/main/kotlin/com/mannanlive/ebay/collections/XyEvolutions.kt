@@ -68,7 +68,7 @@ class XyEvolutions {
                 Card(113, "Here Comes Team Rocket!", CardType.SECRET_RARE)
             ),
             "evolutions",
-            listOf("digital", "jumbo", "promo", "psa", "bgs")
+            listOf("digital", "jumbo", "promo",)
         )
 
         @JvmStatic

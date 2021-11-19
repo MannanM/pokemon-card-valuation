@@ -32,7 +32,7 @@ class SunMoonShiningLegends {
                 Card(78, "Mewtwo-GX", CardType.SECRET)
             ),
             "Shining%20Legends",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

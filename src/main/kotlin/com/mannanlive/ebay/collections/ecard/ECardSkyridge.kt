@@ -18,7 +18,7 @@ class ECardSkyridge {
                 Card(150, "Kabutops", CardType.SECRET)
             ),
             "Skyridge",
-            listOf("psa", "japanese", "metal")
+            listOf("japanese", "metal")
         )
 
         @JvmStatic

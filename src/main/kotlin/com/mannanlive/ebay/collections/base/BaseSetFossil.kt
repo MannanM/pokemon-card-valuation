@@ -77,7 +77,7 @@ class BaseSetFossil {
                 Card(62, "Mysterious Fossil", CardType.NORMAL)
             ),
             "fossil",
-            listOf("shadowless", "first", "psa", "bgs")
+            listOf("shadowless", "first",)
         )
 
         @JvmStatic

@@ -42,7 +42,7 @@ class EBayClient {
     private fun doGetHistory(searchString: String, excludeString: String): String {
         val response = extractResponse(
             HttpGet(
-                "https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=${searchString}&_in_kw=1&_ex_kw=${excludeString}&_sacat=0&LH_Sold=1&_udlo=&_udhi=&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=15&_dmd=1&_ipg=200&LH_Complete=1&_fosrp=1".also {
+                "https://www.ebay.com.au/sch/i.html?_from=R40&_nkw=${searchString}&_in_kw=1&_ex_kw=${excludeString}&_sacat=0&LH_Sold=1&_udlo=&_udhi=&_samilow=&_samihi=&_sadis=15&_stpos=4104&_fsradio2=%26LH_PrefLoc%3D1&_sargn=-1%26saslc%3D1&_salic=15&LH_SubLocation=1&_sop=15&_dmd=1&_ipg=200&LH_Complete=1&_fosrp=1&Graded=No".also {
                     println(it)
                 }
             ).apply {

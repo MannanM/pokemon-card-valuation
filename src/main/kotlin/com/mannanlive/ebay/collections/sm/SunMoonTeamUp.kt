@@ -65,7 +65,7 @@ class SunMoonTeamUp {
                 Card(196, "Pokémon Communication", CardType.SECRET, "(Pokémon,Pokemon) Communication")
             ),
             "Team%20Up",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

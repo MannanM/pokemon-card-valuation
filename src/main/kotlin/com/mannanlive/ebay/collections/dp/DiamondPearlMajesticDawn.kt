@@ -16,7 +16,7 @@ class DiamondPearlMajesticDawn {
                 Card(100, "Porygon-Z LV.X", CardType.LVX)
             ),
             "Majestic%20Dawn",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

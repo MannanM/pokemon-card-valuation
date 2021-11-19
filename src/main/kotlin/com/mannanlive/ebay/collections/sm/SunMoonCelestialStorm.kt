@@ -59,7 +59,7 @@ class SunMoonCelestialStorm {
                 Card(183, "Rainbow Energy", CardType.SECRET)
             ),
             "Celestial%20Storm",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic

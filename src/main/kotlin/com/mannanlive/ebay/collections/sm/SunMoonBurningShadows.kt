@@ -67,7 +67,7 @@ class SunMoonBurningShadows {
                 Card(169, "Fairy Energy", CardType.SECRET)
             ),
             "Burning%20Shadows",
-            listOf("jumbo", "promo", "psa", "japanese")
+            listOf("jumbo", "promo","japanese")
         )
 
         @JvmStatic
