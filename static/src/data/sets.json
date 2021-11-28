@@ -4,6 +4,9 @@
       "name": "Sword & Shield",
       "sets": [
         {
+          "name": "Celebrations",
+          "value": "CEL25"
+        },        {
           "name": "Evolving Skies",
           "value": "SWSH7"
         },
